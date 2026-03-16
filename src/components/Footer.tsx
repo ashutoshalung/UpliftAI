@@ -74,7 +74,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">The Accelerator</h4>
             <ul className="space-y-3">
-              <li><ScrollLink to="/accelerator">The 6 Tiers</ScrollLink></li>
+              <li><ScrollLink to="/accelerator">The 6 Programs</ScrollLink></li>
               <li><ScrollLink hash="pricing">Packages & Pricing</ScrollLink></li>
               <li><ScrollLink hash="where-to-start">Where To Start</ScrollLink></li>
             </ul>

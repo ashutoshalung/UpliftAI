@@ -29,7 +29,7 @@ const features = [
   {
     icon: Map,
     title: 'Personalised Referral Mapping',
-    description: 'Direct ecosystem introductions: internships for Tiers 1-3, senior/founder-level placements for Tiers 4-6. We don\'t just train you — we place you.',
+    description: 'Direct ecosystem introductions: internships for Programs 1-3, senior/founder-level placements for Programs 4-6. We don\'t just train you — we place you.',
     gradient: 'from-brand-yellow to-lime-400',
   },
 ];
@@ -43,7 +43,7 @@ export default function ElitePackage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div ref={headerRef} className={`text-center mb-6 fade-up ${headerVisible ? 'visible' : ''}`}>
           <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-base font-semibold mb-5 uppercase tracking-wider">
-            Included in Every Tier
+            Included in Every Program
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Your Gateway to the{' '}
@@ -52,7 +52,7 @@ export default function ElitePackage() {
             </span>
           </h2>
           <p className="mt-5 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            This is not a course. It's a career acceleration system. Every tier comes with the full engine — assessment, mentorship, portfolio building, interview prep, and{' '}
+            This is not a course. It's a career acceleration system. Every program comes with the full engine — assessment, mentorship, portfolio building, interview prep, and{' '}
             <span className="font-bold text-gray-900">direct placement</span>.
           </p>
         </div>

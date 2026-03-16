@@ -13,7 +13,7 @@ export default function AcceleratorPage() {
       <section className="py-20 bg-gradient-to-b from-orange-50/60 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-base font-semibold mb-5 uppercase tracking-wider">
-            The 6-Tier Career Accelerator
+            The 6-Program Career Accelerator
           </span>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
             The Uplift AI{' '}
@@ -22,7 +22,7 @@ export default function AcceleratorPage() {
             </span>
           </h1>
           <p className="mt-5 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Each tier builds on the last. By Tier 6, you can build, deploy,
+            Each program builds on the last. By Program 6, you can build, deploy,
             and ship AI products independently.
           </p>
           <p className="mt-3 text-base font-bold text-gray-400 tracking-widest">
@@ -51,7 +51,7 @@ export default function AcceleratorPage() {
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-10">
-            Which Tiers Do You Need for Your{' '}
+            Which Programs Do You Need for Your{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">Target Role?</span>
           </h2>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
@@ -59,7 +59,7 @@ export default function AcceleratorPage() {
               <thead>
                 <tr className="bg-gradient-to-r from-brand-orange/5 to-brand-coral/5 border-b-2 border-gray-200">
                   <th className="py-4 px-6 text-base font-bold text-gray-900">Role</th>
-                  <th className="py-4 px-6 text-base font-bold text-gray-900">Primary Tiers</th>
+                  <th className="py-4 px-6 text-base font-bold text-gray-900">Primary Programs</th>
                   <th className="py-4 px-6 text-base font-bold text-gray-900">Why</th>
                 </tr>
               </thead>
@@ -88,19 +88,19 @@ export default function AcceleratorPage() {
             <table className="w-full text-left border-collapse bg-white">
               <thead>
                 <tr className="bg-gradient-to-r from-brand-orange/5 to-brand-coral/5 border-b-2 border-gray-200">
-                  <th className="py-4 px-6 text-base font-bold text-gray-900">After Tier</th>
+                  <th className="py-4 px-6 text-base font-bold text-gray-900">After Program</th>
                   <th className="py-4 px-6 text-base font-bold text-gray-900">GitHub Repos</th>
                   <th className="py-4 px-6 text-base font-bold text-gray-900">GitHub Stars</th>
                   <th className="py-4 px-6 text-base font-bold text-gray-900">Personal Website Features</th>
                 </tr>
               </thead>
               <tbody className="text-base text-gray-600">
-                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-orange">Tier 1</td><td className="py-4 px-6 font-semibold">3-5</td><td className="py-4 px-6">5-20</td><td className="py-4 px-6">Live site, about page, 3 projects, first blog</td></tr>
-                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-coral">Tier 2</td><td className="py-4 px-6 font-semibold">5-8</td><td className="py-4 px-6">20-100</td><td className="py-4 px-6">LLM demos, embedded chatbot, RAG blog</td></tr>
-                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-magenta">Tier 3</td><td className="py-4 px-6 font-semibold">8-12</td><td className="py-4 px-6">50-200</td><td className="py-4 px-6">Live agent demo, automation case study, videos</td></tr>
-                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-green">Tier 4</td><td className="py-4 px-6 font-semibold">10-15</td><td className="py-4 px-6">50-500</td><td className="py-4 px-6">Published tools, download stats, "How I Built X" blog</td></tr>
-                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-teal">Tier 5</td><td className="py-4 px-6 font-semibold">12-18</td><td className="py-4 px-6">20-100</td><td className="py-4 px-6">Architecture diagrams, monitoring dashboards</td></tr>
-                <tr className="hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-yellow">Tier 6</td><td className="py-4 px-6 font-semibold">15-20+</td><td className="py-4 px-6">100-1,000+</td><td className="py-4 px-6 font-bold text-gray-900">Full portfolio, live demos, metrics. This IS the resume.</td></tr>
+                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-orange">Program 1</td><td className="py-4 px-6 font-semibold">3-5</td><td className="py-4 px-6">5-20</td><td className="py-4 px-6">Live site, about page, 3 projects, first blog</td></tr>
+                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-coral">Program 2</td><td className="py-4 px-6 font-semibold">5-8</td><td className="py-4 px-6">20-100</td><td className="py-4 px-6">LLM demos, embedded chatbot, RAG blog</td></tr>
+                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-magenta">Program 3</td><td className="py-4 px-6 font-semibold">8-12</td><td className="py-4 px-6">50-200</td><td className="py-4 px-6">Live agent demo, automation case study, videos</td></tr>
+                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-green">Program 4</td><td className="py-4 px-6 font-semibold">10-15</td><td className="py-4 px-6">50-500</td><td className="py-4 px-6">Published tools, download stats, "How I Built X" blog</td></tr>
+                <tr className="border-b border-gray-100 hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-teal">Program 5</td><td className="py-4 px-6 font-semibold">12-18</td><td className="py-4 px-6">20-100</td><td className="py-4 px-6">Architecture diagrams, monitoring dashboards</td></tr>
+                <tr className="hover:bg-orange-50/30 transition-colors"><td className="py-4 px-6 font-bold text-brand-yellow">Program 6</td><td className="py-4 px-6 font-semibold">15-20+</td><td className="py-4 px-6">100-1,000+</td><td className="py-4 px-6 font-bold text-gray-900">Full portfolio, live demos, metrics. This IS the resume.</td></tr>
               </tbody>
             </table>
           </div>

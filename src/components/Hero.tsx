@@ -89,7 +89,7 @@ export default function Hero() {
         >
           Most people learn AI. We make you <span className="font-semibold text-gray-700">employable</span> in AI.
           <br className="hidden sm:block" />
-          6 tiers. Real tools. Proof-of-work. Internship placement.
+          6 programs. Real tools. Proof-of-work. Internship placement.
           <br className="hidden sm:block" />
           Mentored by engineers from DeepMind, Google, Meta, and NUS.
         </p>
@@ -111,7 +111,7 @@ export default function Hero() {
               onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
             >
-              Explore The Tiers
+              Explore The Programs
               <ArrowRight size={18} className="text-gray-400" />
             </button>
           </div>

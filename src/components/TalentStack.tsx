@@ -210,7 +210,7 @@ function StaircaseSection() {
           </div>
 
           {!activeTierData && (
-            <p className="text-center text-base text-gray-400 mt-4">Select a tier to see tools, salary, and portfolio details.</p>
+            <p className="text-center text-base text-gray-400 mt-4">Select a program to see tools, salary, and portfolio details.</p>
           )}
         </div>
 
@@ -222,7 +222,7 @@ function StaircaseSection() {
                   <X size={14} className="text-gray-500" />
                 </button>
                 <div className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: activeTierData.color }}>
-                  Tier {activeTierData.num} — {activeTierData.label}
+                  Program {activeTierData.num} — {activeTierData.label}
                 </div>
                 <div className="text-xl font-black text-gray-900 mb-1">{activeTierData.title}</div>
                 <p className="text-base text-gray-600">{activeTierData.oneLiner}</p>
@@ -261,7 +261,7 @@ function StaircaseSection() {
               <div className="rounded-xl border-2 p-5 flex flex-col items-center justify-center gap-3" style={{ borderColor: `${activeTierData.color}50`, background: `linear-gradient(135deg, ${activeTierData.color}08, white)` }}>
                 <div className="text-center">
                   <div className="text-sm font-bold uppercase tracking-wider mb-1" style={{ color: activeTierData.color }}>
-                    Tier Price
+                    Program Price
                   </div>
                   <div className="text-4xl font-black text-gray-900">${activeTierData.price}</div>
                 </div>
@@ -289,7 +289,7 @@ export default function TalentStack() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div ref={headerRef} className={`text-center mb-1 fade-up ${headerVisible ? 'visible' : ''}`}>
           <span className="inline-block px-5 py-2 rounded-full bg-brand-green/10 text-brand-green text-base font-semibold mb-4 uppercase tracking-wider">
-            The 6-Tier Ascent
+            The 6-Program Ascent
           </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
             From AI Curious to{' '}
@@ -298,7 +298,7 @@ export default function TalentStack() {
             </span>
           </h2>
           <p className="mt-3 mb-2 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Six tiers. Each builds on the last. You start where you are and ascend to where the market actually pays.
+            Six programs. Each builds on the last. You start where you are and ascend to where the market actually pays.
           </p>
           <p className="text-base font-bold text-gray-400 tracking-widest mb-6">
             LEARN → BUILD → AUTOMATE → CODE → DEPLOY → SHIP
@@ -319,11 +319,11 @@ export default function TalentStack() {
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all duration-300"
             >
-              Know your tier? Pay & Enroll →
+              Know your program? Pay & Enroll →
             </button>
           </div>
           <a href="/accelerator" className="inline-flex items-center gap-2 text-brand-orange font-bold text-base hover:underline">
-            View Full Tier Details →
+            View Full Program Details →
           </a>
         </div>
       </div>

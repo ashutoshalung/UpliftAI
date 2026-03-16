@@ -23,7 +23,7 @@ export default function FinalCTA() {
 
           <p className="mt-6 text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
             The AI Job Readiness Assessment is free. It takes 30 minutes.
-            You'll get your AI readiness score, your recommended starting tier,
+            You'll get your AI readiness score, your recommended starting program,
             a personalised gap analysis, and a clear action plan.
           </p>
 
@@ -42,7 +42,7 @@ export default function FinalCTA() {
               onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white border-2 border-white/30 hover:bg-white/10 transition-all duration-300"
             >
-              Explore The Tiers →
+              Explore The Programs →
             </button>
           </div>
           <div className="mt-4">

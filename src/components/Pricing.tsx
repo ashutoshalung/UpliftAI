@@ -8,7 +8,7 @@ const packages = [
   {
     name: 'Package 1',
     price: 300,
-    tiers: 'Tiers 1-3',
+    tiers: 'Programs 1-3',
     labels: 'LEARN + BUILD + AUTOMATE',
     tagline: 'From zero to building autonomous AI systems',
     bestFor: 'Beginners, career changers, students',
@@ -19,19 +19,19 @@ const packages = [
   {
     name: 'Premium Package',
     price: 500,
-    tiers: 'Tiers 1-4',
+    tiers: 'Programs 1-4',
     labels: 'LEARN + BUILD + AUTOMATE + CODE',
     tagline: 'The complete technical stack — foundations through AI-powered development',
     bestFor: 'Ambitious learners wanting the full stack',
     careers: ['All Package 1 roles', 'AI Software Engineer', 'Full-Stack AI Developer'],
     salary: '$85K - $250K',
     popular: true,
-    whyUpgrade: '85% of developers now use AI coding tools daily. Tier 4 is the difference between "I know AI" and "I build with AI."',
+    whyUpgrade: '85% of developers now use AI coding tools daily. Program 4 is the difference between "I know AI" and "I build with AI."',
   },
   {
     name: 'Package 2',
     price: 300,
-    tiers: 'Tiers 4-6',
+    tiers: 'Programs 4-6',
     labels: 'CODE + DEPLOY + SHIP',
     tagline: 'From coding to launching AI products',
     bestFor: 'Developers with existing ML/coding knowledge',
@@ -160,17 +160,17 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Individual Tier Pricing — always visible */}
+        {/* Individual Program Pricing — always visible */}
         <div ref={tierRef} className="mt-16">
           <div className="text-center mb-8">
             <h3 className="text-2xl sm:text-3xl font-black text-gray-900">
               Or Buy{' '}
               <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-                Individual Tiers
+                Individual Programs
               </span>
             </h3>
             <p className="mt-2 text-base text-gray-500">
-              Pick exactly the tiers you need. Save up to 40% with packages.
+              Pick exactly the programs you need. Save up to 40% with packages.
             </p>
           </div>
 

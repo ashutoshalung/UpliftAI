@@ -54,7 +54,7 @@ export default function Masterclass() {
             </div>
 
             <p className="mt-5 text-base text-gray-400">
-              Already know your tier? <button onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })} className="font-bold text-brand-orange hover:underline">Explore the tiers directly →</button>
+              Already know your program? <button onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })} className="font-bold text-brand-orange hover:underline">Explore the programs directly →</button>
             </p>
           </div>
         </div>

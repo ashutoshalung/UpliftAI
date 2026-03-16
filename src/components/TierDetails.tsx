@@ -64,7 +64,7 @@ const tierData: TierData[] = [
     color: '#F43F5E',
     stairLabel: 'Build applications on top of Large Language Models.',
     whoShouldTake: [
-      'Developers who completed Tier 1 or have ML foundations',
+      'Developers who completed Program 1 or have ML foundations',
       'Backend engineers wanting to build LLM-powered products',
       'Anyone targeting the #1 hiring need in 2026: production LLM applications',
     ],
@@ -227,7 +227,7 @@ const tierData: TierData[] = [
     ],
     targetCompanies: ['OpenAI', 'Anthropic', 'Jasper', 'Google', 'Microsoft', 'Amazon', 'YC/a16z portfolio', 'Your own startup'],
     github: '15-20+ repos | 100-1,000+ stars | Launched products with real users, published packages',
-    website: 'Stunning portfolio showcasing all 6 tiers. Live product demos. User/revenue metrics. This website IS the resume.',
+    website: 'Stunning portfolio showcasing all 6 programs. Live product demos. User/revenue metrics. This website IS the resume.',
   },
 ];
 
@@ -283,7 +283,7 @@ function TierCard({ tier, index }: { tier: TierData; index: number }) {
               <div className="mb-6">
                 <div className="flex items-center gap-2.5 mb-3">
                   <Brain size={20} style={{ color: tier.color }} />
-                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Who Should Take This Tier</span>
+                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Who Should Take This Program</span>
                 </div>
                 <ul className="space-y-1.5">
                   {tier.whoShouldTake.map((item) => (
@@ -421,11 +421,11 @@ export default function TierDetails() {
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight">
             Explore Each{' '}
             <span className="bg-gradient-to-r from-brand-coral to-brand-orange bg-clip-text text-transparent">
-              Tier
+              Program
             </span>
           </h2>
           <p className="mt-5 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Tap any tier to see the full breakdown: tools, projects, careers, salaries, companies, and portfolio expectations.
+            Tap any program to see the full breakdown: tools, projects, careers, salaries, companies, and portfolio expectations.
           </p>
         </div>
 

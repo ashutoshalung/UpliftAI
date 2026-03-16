@@ -9,9 +9,9 @@ const entryPoints = [
     iconBg: 'bg-gradient-to-br from-brand-magenta to-pink-400',
     title: "I'm new to AI",
     desc: "You've heard the buzz but haven't built anything yet. Maybe you're a student, a career switcher, or a professional in a non-tech role.",
-    startAt: 'Tier 1 (LEARN)',
+    startAt: 'Program 1 (LEARN)',
     recommended: 'Package 1 — $300',
-    recommendedSub: 'Tiers 1-3',
+    recommendedSub: 'Programs 1-3',
     outcome: 'Building autonomous AI agents, with a live portfolio and 8-12 GitHub repos',
   },
   {
@@ -19,9 +19,9 @@ const entryPoints = [
     iconBg: 'bg-gradient-to-br from-brand-coral to-rose-400',
     title: 'I can build models but want to build apps',
     desc: "You know Python, maybe some ML. But you haven't built production LLM applications or worked with agents.",
-    startAt: 'Tier 2 (BUILD)',
+    startAt: 'Program 2 (BUILD)',
     recommended: 'Premium — $500',
-    recommendedSub: 'Tiers 1-4 (best value)',
+    recommendedSub: 'Programs 1-4 (best value)',
     outcome: 'Shipping LLM apps, building agents, coding with Claude Code & Cursor',
   },
   {
@@ -29,9 +29,9 @@ const entryPoints = [
     iconBg: 'bg-gradient-to-br from-brand-orange to-amber-400',
     title: "I'm a developer — give me AI superpowers",
     desc: 'You can code. You want to work faster with AI coding tools and learn to deploy and ship AI products.',
-    startAt: 'Tier 4 (CODE)',
+    startAt: 'Program 4 (CODE)',
     recommended: 'Package 2 — $300',
-    recommendedSub: 'Tiers 4-6',
+    recommendedSub: 'Programs 4-6',
     outcome: 'Building and launching full AI products, production-deployed, with real users',
   },
   {
@@ -39,9 +39,9 @@ const entryPoints = [
     iconBg: 'bg-gradient-to-br from-brand-green to-emerald-400',
     title: 'I want to ship AI products and start a company',
     desc: 'You have technical foundations. You want to build, deploy, monetize, and launch.',
-    startAt: 'Tier 5 or 6 (DEPLOY / SHIP)',
+    startAt: 'Program 5 or 6 (DEPLOY / SHIP)',
     recommended: 'Package 2 — $300',
-    recommendedSub: 'Tiers 4-6',
+    recommendedSub: 'Programs 4-6',
     outcome: 'Running an AI SaaS with paying users, listed on Product Hunt, investor-ready',
   },
 ];
@@ -58,7 +58,7 @@ export default function WhereToStart() {
             Find Your Starting Point
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            You Don't Start at Tier 1{' '}
+            You Don't Start at Program 1{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
               Unless You Need To.
             </span>
@@ -104,7 +104,7 @@ export default function WhereToStart() {
                 onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })}
                 className="mt-6 w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg transition-all group"
               >
-                Explore The Tiers
+                Explore The Programs
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -116,7 +116,7 @@ export default function WhereToStart() {
             onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
           >
-            Explore The Tiers →
+            Explore The Programs →
           </button>
           <a
             href={ASSESSMENT_URL}

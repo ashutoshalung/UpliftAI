@@ -40,7 +40,7 @@ export default function MentorsCompanies() {
             </div>
             <h3 className="mt-5 text-xl font-black text-gray-900">Hire AI Talent</h3>
             <p className="mt-2 text-gray-600 text-base leading-relaxed">
-              Access a validated pipeline of AI professionals trained through our 6-tier system. Every candidate comes with proof-of-work, a live portfolio, and documented capability.
+              Access a validated pipeline of AI professionals trained through our 6-program system. Every candidate comes with proof-of-work, a live portfolio, and documented capability.
             </p>
             <a
               href="https://community.upliftai.pro/join?invitation_token=db45694a19573c9df693618139d863fd67c72db3-2ad0e7c2-c82b-40a6-9539-777da1062849"
