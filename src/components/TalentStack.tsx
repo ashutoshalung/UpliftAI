@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
+const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 
 const tiers = [
   {
@@ -272,7 +273,7 @@ function StaircaseSection() {
                   <div className="text-4xl font-black text-gray-900">${activeTierData.price}</div>
                 </div>
                 <a
-                  href={activeTierData.paymentUrl}
+                  href={ENROLL_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full text-center px-4 py-2.5 rounded-full text-white text-base font-bold transition-all hover:shadow-lg hover:scale-[1.03]"

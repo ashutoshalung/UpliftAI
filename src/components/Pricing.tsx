@@ -2,6 +2,7 @@ import { ArrowRight, Star } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
+const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 const packages = [
   {
     name: 'Package 1',
@@ -147,7 +148,7 @@ export default function Pricing() {
               </div>
 
               <a
-                href={pkg.paymentUrl}
+                href={ENROLL_FORM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-7 w-full flex items-center justify-center gap-2 px-6 py-4 rounded-full text-base font-semibold transition-all ${
@@ -190,7 +191,7 @@ export default function Pricing() {
                 <p className="text-sm text-gray-600 mb-3 leading-tight">{tier.title}</p>
                 <p className="text-3xl font-black text-gray-900">${tier.price}</p>
                 <a
-                  href={tier.paymentUrl}
+                  href={ENROLL_FORM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 block text-center text-sm font-bold py-2.5 rounded-full border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"

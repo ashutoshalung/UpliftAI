@@ -3,7 +3,7 @@ import TierDetails from '../components/TierDetails';
 import Footer from '../components/Footer';
 
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-const PAYMENT_URL = 'https://buy.stripe.com/3cIdRagsE3xW8aM78o9sk01';
+const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 
 export default function AcceleratorPage() {
   return (
@@ -36,7 +36,7 @@ export default function AcceleratorPage() {
               AI Job Readiness Assessment →
             </a>
             <a
-              href={PAYMENT_URL}
+              href={ENROLL_FORM_URL}
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
             >
               Pay & Enroll Now →
@@ -116,7 +116,7 @@ export default function AcceleratorPage() {
             AI Job Readiness Assessment →
           </a>
           <a
-            href={PAYMENT_URL}
+            href={ENROLL_FORM_URL}
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-lg text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
           >
             Pay & Enroll Now →
