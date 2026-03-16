@@ -1,30 +1,48 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
-const acceleratorLinks = [
-  { label: 'The 6 Tiers', to: '/accelerator' },
-  { label: 'Packages & Pricing', href: '#pricing' },
-  { label: 'Where To Start', href: '#where-to-start' },
-];
+const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 
-const companyLinks = [
-  { label: 'About Us', to: '/about' },
-  { label: 'Our Mentors', href: '#' },
-  { label: 'Blog', href: '#' },
-  { label: 'Careers', href: '#' },
-];
+function ScrollLink({ to, hash, children }: { to?: string; hash?: string; children: React.ReactNode }) {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-const getStartedLinks = [
-  { label: 'AI Readiness Assessment', href: '#assessment' },
-  { label: 'Enroll Now', href: '#pricing' },
-  { label: 'Contact Us', href: '#' },
-];
+  if (to) {
+    return (
+      <Link to={to} className="text-gray-400 text-sm hover:text-white transition-colors">
+        {children}
+      </Link>
+    );
+  }
+
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!hash) return;
+
+    if (location.pathname === '/') {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
+  };
+
+  return (
+    <button onClick={handleClick} className="text-gray-400 text-sm hover:text-white transition-colors text-left">
+      {children}
+    </button>
+  );
+}
 
 const socials = [
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
   { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Mail, href: '#', label: 'Email' },
+  { icon: Mail, href: 'mailto:hello@upliftai.pro', label: 'Email' },
 ];
 
 export default function Footer() {
@@ -56,51 +74,27 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">The Accelerator</h4>
             <ul className="space-y-3">
-              {acceleratorLinks.map((l) => (
-                <li key={l.label}>
-                  {l.to ? (
-                    <Link to={l.to} className="text-gray-400 text-sm hover:text-white transition-colors">
-                      {l.label}
-                    </Link>
-                  ) : (
-                    <a href={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                      {l.label}
-                    </a>
-                  )}
-                </li>
-              ))}
+              <li><ScrollLink to="/accelerator">The 6 Tiers</ScrollLink></li>
+              <li><ScrollLink hash="pricing">Packages & Pricing</ScrollLink></li>
+              <li><ScrollLink hash="where-to-start">Where To Start</ScrollLink></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-3">
-              {companyLinks.map((l) => (
-                <li key={l.label}>
-                  {l.to ? (
-                    <Link to={l.to} className="text-gray-400 text-sm hover:text-white transition-colors">
-                      {l.label}
-                    </Link>
-                  ) : (
-                    <a href={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                      {l.label}
-                    </a>
-                  )}
-                </li>
-              ))}
+              <li><ScrollLink to="/about">About Us</ScrollLink></li>
+              <li><ScrollLink hash="mentors">Our Mentors</ScrollLink></li>
+              <li><a href="mailto:hello@upliftai.pro" className="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Get Started</h4>
             <ul className="space-y-3">
-              {getStartedLinks.map((l) => (
-                <li key={l.label}>
-                  <a href={l.href} className="text-gray-400 text-sm hover:text-white transition-colors">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
+              <li><a href={ASSESSMENT_URL} className="text-gray-400 text-sm hover:text-white transition-colors">AI Readiness Assessment</a></li>
+              <li><ScrollLink hash="pricing">Enroll Now</ScrollLink></li>
+              <li><a href="mailto:hello@upliftai.pro" className="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -109,10 +103,6 @@ export default function Footer() {
           <p className="text-gray-500 text-sm">
             &copy; 2026 Uplift AI. Singapore.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-gray-500 text-sm hover:text-gray-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-gray-500 text-sm hover:text-gray-300 transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>

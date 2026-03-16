@@ -87,7 +87,7 @@ export default function Features() {
                   <f.icon size={20} className="text-white" />
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-gray-900">{f.title}</h3>
-                <p className="mt-2 text-gray-500 leading-relaxed text-sm">{f.desc}</p>
+                <p className="mt-2 text-gray-600 leading-relaxed text-base">{f.desc}</p>
               </div>
             </GlowCard>
           ))}

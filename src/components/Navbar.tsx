@@ -3,7 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Logo from './Logo';
 
-const ASSESSMENT_URL = '#assessment';
+const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 
 function NavLink({ href, to, children, onClick }: {
   href?: string;
@@ -16,7 +16,7 @@ function NavLink({ href, to, children, onClick }: {
 
   if (to) {
     return (
-      <Link to={to} onClick={onClick} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+      <Link to={to} onClick={onClick} className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors">
         {children}
       </Link>
     );
@@ -35,7 +35,7 @@ function NavLink({ href, to, children, onClick }: {
   };
 
   return (
-    <a href={href} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors" onClick={handleClick}>
+    <a href={href} className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors" onClick={handleClick}>
       {children}
     </a>
   );
@@ -46,18 +46,20 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         <Logo />
 
         <div className="hidden md:flex items-center gap-8">
+          <a href="https://community.upliftai.pro/join?invitation_token=f428b930d629d809a0145adaa77f482ff6bc4bde-afeaad75-1e2b-473a-985d-9dd3ef56aaa7" className="text-base font-medium text-gray-700 hover:text-gray-900 transition-colors">Free Masterclass</a>
           <NavLink to="/accelerator">The Accelerator</NavLink>
+          <NavLink href="#pricing">Pricing</NavLink>
           <NavLink to="/about">About</NavLink>
 
           <a
             href={ASSESSMENT_URL}
-            className="text-sm font-semibold text-white px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25 transition-all"
+            className="text-sm font-semibold text-white px-5 py-2 rounded-full bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25 transition-all"
           >
-            Find Your Tier →
+            AI Readiness Assessment
           </a>
         </div>
 
@@ -72,26 +74,40 @@ export default function Navbar() {
 
       {open && (
         <div className="md:hidden border-t border-gray-100 bg-white px-4 pb-4">
+          <a
+            href="https://community.upliftai.pro/join?invitation_token=f428b930d629d809a0145adaa77f482ff6bc4bde-afeaad75-1e2b-473a-985d-9dd3ef56aaa7"
+            onClick={() => setOpen(false)}
+            className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
+          >
+            Free Masterclass
+          </a>
           <Link
             to="/accelerator"
             onClick={() => setOpen(false)}
-            className="block py-3 text-sm font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
+            className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
           >
             The Accelerator
           </Link>
+          <a
+            href="#pricing"
+            onClick={() => setOpen(false)}
+            className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
+          >
+            Pricing
+          </a>
           <Link
             to="/about"
             onClick={() => setOpen(false)}
-            className="block py-3 text-sm font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
+            className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50"
           >
             About
           </Link>
           <a
             href={ASSESSMENT_URL}
             onClick={() => setOpen(false)}
-            className="mt-3 block text-center text-sm font-semibold text-white px-5 py-2.5 rounded-full bg-gradient-to-r from-brand-orange to-brand-coral"
+            className="mt-3 block text-center text-base font-semibold text-white px-6 py-3 rounded-full bg-gradient-to-r from-brand-orange to-brand-coral"
           >
-            Find Your Tier →
+            AI Readiness Assessment
           </a>
         </div>
       )}

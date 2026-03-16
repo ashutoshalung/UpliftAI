@@ -5,13 +5,13 @@ export default function MentorsCompanies() {
   const { ref, visible } = useInView();
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section id="mentors" className="py-16 bg-gradient-to-b from-rose-50/60 to-orange-50/40 overflow-hidden">
       <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className={`text-center mb-10 fade-up ${visible ? 'visible' : ''}`}>
-          <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
             Join the Uplift AI Ecosystem
           </h2>
-          <p className="mt-2 text-gray-500">
+          <p className="mt-2 text-lg text-gray-600">
             We don't just train talent — we connect it.
           </p>
         </div>
@@ -22,11 +22,11 @@ export default function MentorsCompanies() {
               <Users size={22} className="text-white" />
             </div>
             <h3 className="mt-5 text-xl font-black text-gray-900">Become a Mentor</h3>
-            <p className="mt-2 text-gray-500 text-sm leading-relaxed">
+            <p className="mt-2 text-gray-600 text-base leading-relaxed">
               Lead mentor circles, run specialist clinics, supervise capstone projects, and shape the next generation of AI professionals. Our mentors come from DeepMind, Google, Meta, NUS, MIT, and more.
             </p>
             <a
-              href="#mentor-apply"
+              href="https://community.upliftai.pro/join?invitation_token=08955cdf297ff35f3c107aeb41d56505c24d0949-cb66c74c-d503-41bc-92fd-8a055909c622"
               className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full text-brand-coral font-semibold border border-brand-coral/20 hover:bg-brand-coral/5 transition-all group"
             >
               Apply As Mentor
@@ -39,11 +39,11 @@ export default function MentorsCompanies() {
               <Building2 size={22} className="text-white" />
             </div>
             <h3 className="mt-5 text-xl font-black text-gray-900">Hire AI Talent</h3>
-            <p className="mt-2 text-gray-500 text-sm leading-relaxed">
+            <p className="mt-2 text-gray-600 text-base leading-relaxed">
               Access a validated pipeline of AI professionals trained through our 6-tier system. Every candidate comes with proof-of-work, a live portfolio, and documented capability.
             </p>
             <a
-              href="#partner-apply"
+              href="https://community.upliftai.pro/join?invitation_token=db45694a19573c9df693618139d863fd67c72db3-2ad0e7c2-c82b-40a6-9539-777da1062849"
               className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full text-brand-green font-semibold border border-brand-green/20 hover:bg-brand-green/5 transition-all group"
             >
               Partner With Us

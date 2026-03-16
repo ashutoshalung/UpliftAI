@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
+import Masterclass from './components/Masterclass';
 import TalentStack from './components/TalentStack';
 import ElitePackage from './components/ElitePackage';
 import YourJourney from './components/YourJourney';
@@ -28,6 +29,7 @@ function LandingPage() {
       <Navbar />
       <Hero />
       <Problem />
+      <Masterclass />
       <TalentStack />
       <ElitePackage />
       <YourJourney />

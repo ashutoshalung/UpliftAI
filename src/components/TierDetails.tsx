@@ -1,190 +1,233 @@
 import { useState, useCallback, useRef } from 'react';
-import { ChevronDown, Briefcase, Code2, FolderGit2, Star, DollarSign, Target, Brain, Tag, Crosshair } from 'lucide-react';
+import { ChevronDown, Briefcase, Code2, FolderGit2, Star, Globe, Target, Brain } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 interface TierData {
   num: number;
+  label: string;
   title: string;
   gradient: string;
   color: string;
-  why: string;
-  marketMandate: string;
-  roles: string[];
-  salary: string;
-  salaryNote: string;
-  price: number;
-  discountPrice: number;
-  mindset: string;
-  unicorns: string[];
-  eliteStack: { name: string; highlight: boolean }[];
-  portfolio: string[];
-  highSignalPortfolio: string[];
-  githubStars: string;
-  githubNote: string;
+  stairLabel: string;
+  whoShouldTake: string[];
+  toolStack: { name: string; desc: string; highlight: boolean }[];
+  alsoCovered: string;
+  concepts: string;
+  projects: { name: string; desc: string }[];
+  roles: { title: string; salary: string }[];
+  targetCompanies: string[];
+  github: string;
+  website: string;
 }
 
 const tierData: TierData[] = [
   {
     num: 1,
-    title: 'AI Internship Launchpad',
+    label: 'LEARN',
+    title: 'AI & ML Foundations',
     gradient: 'from-brand-orange to-amber-400',
     color: '#F97316',
-    why: "The shift from Generation to Integration at the ground level. Companies don't need interns to write text; they need them to move from manual ops to rapid, automated integrations.",
-    marketMandate: 'Foundational architecture, data orchestration, and first-principles ML fluency are non-negotiable for any serious AI career entry.',
-    roles: ['AI Intern (Ops/Analyst)', 'Junior Automation Builder', 'AI Product Intern'],
-    salary: '$50,000 - $85,000 / yr',
-    salaryNote: 'High volume of competitive intern bids offering early-career stipends for rapid prototyping.',
-    price: 299,
-    discountPrice: 149,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied here to bypass traditional coding roadblocks, ruthlessly accelerating the path from idea to functional prototype.',
-    unicorns: ['OpenAI', 'Anthropic', 'Figure AI', 'Anduril'],
-    eliteStack: [
-      { name: 'Codex', highlight: true },
-      { name: 'Python 3.12+', highlight: true },
-      { name: 'PyTorch', highlight: true },
-      { name: 'Scikit-learn', highlight: false },
-      { name: 'Vector DBs', highlight: false },
-      { name: 'Pandas / NumPy', highlight: false },
+    stairLabel: 'Understand the science behind AI.',
+    whoShouldTake: [
+      'Complete beginners entering AI/ML',
+      'Data analysts transitioning to ML engineering',
+      'Software developers adding ML to their skill set',
+      'CS/engineering/quantitative students',
     ],
-    portfolio: ['Automated CRM data-enrichment pipeline', 'Full-stack vibe-coded SaaS MVP with user authentication', 'Source-grounded internal research bot using local documents'],
-    highSignalPortfolio: ['Foundation-Backtester: End-to-end ML model training and backtesting pipeline', 'Enterprise-RAG-Engine: Production-grade retrieval-augmented generation system', 'Med-Cleanse-Pipeline: Healthcare data cleaning and transformation framework'],
-    githubStars: '100+',
-    githubNote: '',
+    toolStack: [
+      { name: 'PyTorch', desc: '#1 ML/DL framework. Used by Meta, Tesla, OpenAI, and top research labs.', highlight: true },
+      { name: 'TensorFlow / Keras', desc: "Google's ML framework. Most deployed in production worldwide.", highlight: true },
+      { name: 'Scikit-learn', desc: 'The foundational library for classical ML. On every ML job posting.', highlight: true },
+    ],
+    alsoCovered: 'ChatGPT, Claude, Google Gemini (prompt engineering), Google Colab, Jupyter Notebooks, OpenCV, NumPy, Pandas.',
+    concepts: 'Machine Learning (supervised, unsupervised, reinforcement), Deep Learning (neural networks, CNNs, transformers), NLP & Computer Vision.',
+    projects: [
+      { name: 'Image Classification Model', desc: 'Build a CNN using PyTorch that classifies images (e.g., medical X-rays, product defects). Train, evaluate, deploy as API.' },
+      { name: 'Sentiment Analysis & NLP Pipeline', desc: 'Build an NLP pipeline using Scikit-learn and TensorFlow that analyzes customer reviews and extracts themes.' },
+      { name: 'Multi-Model AI Benchmark Report', desc: 'Compare ChatGPT, Claude, and Gemini across 20 prompts with structured analysis of accuracy, reasoning, speed, cost.' },
+    ],
+    roles: [
+      { title: 'Junior ML Engineer', salary: '$100K - $135K' },
+      { title: 'Data Scientist (Entry)', salary: '$95K - $130K' },
+      { title: 'AI Research Assistant', salary: '$85K - $120K' },
+      { title: 'Computer Vision Engineer (Entry)', salary: '$110K - $145K' },
+    ],
+    targetCompanies: ['Google (DeepMind)', 'Meta (FAIR)', 'Microsoft', 'Amazon (AWS AI)', 'Apple', 'NVIDIA', 'OpenAI', 'Anthropic'],
+    github: '3-5 well-documented repos | 5-20 stars on best project | Jupyter notebooks with explanations',
+    website: 'Live site (Lovable/Bolt.new) with about page, skills, 3 project showcases, first blog post',
   },
   {
     num: 2,
-    title: 'Agent Workflow Builder',
+    label: 'BUILD',
+    title: 'LLM Applications & RAG',
     gradient: 'from-brand-coral to-rose-400',
     color: '#F43F5E',
-    why: 'The complete abandonment of single-prompt generation. The Integration Era demands multi-step agent orchestration where systems can use tools, query databases, and operate with memory.',
-    marketMandate: 'Rapid iteration, product-market fit validation, and the ability to ship AI-powered prototypes at startup speed define this tier.',
-    roles: ['Agent Workflow Junior', 'AI Automation Engineer', 'AI Solutions Intern'],
-    salary: '$90,000 - $150,000 / yr',
-    salaryNote: 'Surging hourly rates ($60-$100/hr) for bespoke workflow automation.',
-    price: 299,
-    discountPrice: 149,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied to architecting stateful control workflows and designing autonomous error-recovery loops.',
-    unicorns: ['Skild AI', 'Physical Intelligence', 'Zipline'],
-    eliteStack: [
-      { name: 'Cursor', highlight: true },
-      { name: 'Bolt.new', highlight: true },
-      { name: 'Lovable', highlight: true },
-      { name: 'GitHub Copilot', highlight: false },
-      { name: 'Vercel', highlight: false },
-      { name: 'Supabase', highlight: false },
+    stairLabel: 'Build applications on top of Large Language Models.',
+    whoShouldTake: [
+      'Developers who completed Tier 1 or have ML foundations',
+      'Backend engineers wanting to build LLM-powered products',
+      'Anyone targeting the #1 hiring need in 2026: production LLM applications',
     ],
-    portfolio: ['Multi-agent web scraper yielding structured JSON outputs', 'Autonomous market research agent with tool-calling APIs', 'Task-driven agent architecture featuring human-in-the-loop checkpoints'],
-    highSignalPortfolio: ['Cognitive-Tutor-UI: Adaptive learning platform with AI-driven curriculum paths', 'Market-Intel-Dash: Real-time competitive intelligence dashboard with LLM analysis', 'Brief-Gen-SaaS: Automated creative brief generator for marketing teams'],
-    githubStars: '250+',
-    githubNote: '',
+    toolStack: [
+      { name: 'LangChain', desc: 'Dominant LLM application framework (85K+ GitHub stars). On every LLM engineer job posting.', highlight: true },
+      { name: 'Hugging Face', desc: 'Open-source AI hub with 500K+ models. Fine-tune, deploy, evaluate.', highlight: true },
+      { name: 'Pinecone / ChromaDB', desc: 'Leading vector databases for semantic search and RAG pipelines.', highlight: true },
+    ],
+    alsoCovered: 'LLM app architecture (chains, agents, tools, memory), fine-tuning (LoRA/QLoRA), evaluation (hallucination detection, RAGAS).',
+    concepts: 'RAG pipeline design (chunking, embeddings, retrieval, hybrid search), vector database operations, production LLM architecture.',
+    projects: [
+      { name: 'Enterprise RAG Chatbot', desc: 'Production-ready chatbot ingesting company docs (PDFs, Confluence, Slack) with citations and confidence scores.' },
+      { name: 'Fine-Tuned Domain Expert Model', desc: 'Fine-tune an open-source model on legal/medical/finance, benchmark vs GPT-4/Claude, deploy with REST API.' },
+      { name: 'AI-Powered Code Review Tool', desc: 'LangChain app that reviews PRs, flags bugs, generates docs — deployed as a GitHub Action.' },
+    ],
+    roles: [
+      { title: 'LLM Engineer', salary: '$150K - $250K' },
+      { title: 'RAG Engineer', salary: '$140K - $220K' },
+      { title: 'AI Application Developer', salary: '$130K - $200K' },
+      { title: 'NLP Engineer', salary: '$140K - $210K' },
+    ],
+    targetCompanies: ['OpenAI', 'Anthropic', 'Cohere', 'Mistral', 'Perplexity', 'Google', 'Microsoft', 'Salesforce', 'Databricks', 'Pinecone'],
+    github: '5-8 repos | 20-100 stars | Published Hugging Face model or dataset',
+    website: 'LLM project demos, embedded chatbot or RAG search, technical blog on RAG architecture',
   },
   {
     num: 3,
-    title: 'Mid-Career AI Productivity Operator',
+    label: 'AUTOMATE',
+    title: 'AI Agents & Automation',
     gradient: 'from-brand-magenta to-pink-400',
     color: '#D946EF',
-    why: "Generating code isn't the only integration. The market desperately needs professionals who can integrate AI into legacy business processes, turning non-coders into AI-native operators.",
-    marketMandate: 'Multi-agent systems orchestration, the "AI Orchestrator" role that designs, deploys, and governs autonomous agent networks across enterprise workflows.',
-    roles: ['AI Productivity Lead', 'Automation Consultant', 'AI PM/BA (AI Workflows)'],
-    salary: '$130,000 - $180,000 / yr',
-    salaryNote: 'Consulting retainer fees of $1,500+ per engagement.',
-    price: 299,
-    discountPrice: 149,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied directly to Workflow ROI, cost-reduction analysis, and the strategic translation of business logic into AI workflows.',
-    unicorns: ['Genspark', 'Decagon', 'xAI'],
-    eliteStack: [
-      { name: 'OpenClaw', highlight: true },
-      { name: 'LangGraph', highlight: true },
-      { name: 'CrewAI', highlight: true },
-      { name: 'OpenAI Agents SDK', highlight: false },
-      { name: 'n8n', highlight: false },
-      { name: 'Zapier AI', highlight: false },
+    stairLabel: 'Make AI systems autonomous. The #1 demand skill in 2026.',
+    whoShouldTake: [
+      'Developers who want to build autonomous AI systems',
+      'Business professionals automating workflows',
+      'Entrepreneurs automating operations',
+      'Anyone who wants to ride the hottest AI wave of 2026',
     ],
-    portfolio: ['End-to-end compliance summary automation engine', 'Research-to-slide pitch deck pipeline with source grounding', 'Automated CRM follow-up and multi-channel reporting workflow'],
-    highSignalPortfolio: ['Auto-Researcher-Graph: Multi-agent research pipeline with LangGraph orchestration', 'PR-Review-Orchestrator: Automated code review system with multi-agent consensus', 'Supply-Chain-Triage: Intelligent supply chain anomaly detection and routing agent'],
-    githubStars: '150+',
-    githubNote: 'High-value documentation, SOPs, and architecture diagrams.',
+    toolStack: [
+      { name: 'n8n', desc: 'Leading open-source AI workflow automation (40K+ GitHub stars). 400+ app integrations.', highlight: true },
+      { name: 'OpenClaw', desc: 'Fastest-growing OSS project in history (250K+ GitHub stars). Personal AI agent via Telegram/WhatsApp/Discord.', highlight: true },
+      { name: 'CrewAI', desc: 'Leading multi-agent orchestration framework. A2A protocol support. AutoGen is in maintenance mode — CrewAI won.', highlight: true },
+    ],
+    alsoCovered: 'OpenAI Agents SDK, Zapier AI, API/database/messaging connections.',
+    concepts: 'AI agents (planning, tool use, memory, reasoning loops), personal agents, multi-agent orchestration with role delegation.',
+    projects: [
+      { name: 'AI Executive Assistant Agent', desc: 'OpenClaw agent managing email, calendar, tasks via Telegram/WhatsApp.' },
+      { name: 'Multi-Agent Research System', desc: 'CrewAI crew (researcher, analyst, writer, reviewer) producing investor-grade reports automatically.' },
+      { name: 'Automated Job Application Pipeline', desc: 'n8n workflow: scrape jobs → tailor resumes → write cover letters → submit → track.' },
+    ],
+    roles: [
+      { title: 'AI Agent Developer', salary: '$120K - $250K' },
+      { title: 'AI Automation Engineer', salary: '$110K - $200K' },
+      { title: 'AI Solutions Architect', salary: '$150K - $280K' },
+      { title: 'RPA/AI Automation Consultant', salary: '$120K - $220K' },
+    ],
+    targetCompanies: ['n8n', 'Zapier', 'UiPath', 'CrewAI', 'Salesforce', 'ServiceNow', 'McKinsey', 'Deloitte', 'Accenture'],
+    github: '8-12 repos | 50-200 stars | n8n templates, OpenClaw plugins, agent demos with videos',
+    website: 'Live agent demo visitors can interact with, automation case study, video walkthroughs',
   },
   {
     num: 4,
-    title: 'Professional Agentic RAG Builder',
+    label: 'CODE',
+    title: 'AI-Powered Development',
     gradient: 'from-brand-green to-emerald-400',
     color: '#22C55E',
-    why: 'Foundation models are useless without context. The Integration Era demands the deep integration of proprietary enterprise data with LLMs to permanently kill hallucinations.',
-    marketMandate: 'Strategic translation of AI capabilities into measurable business ROI. The bridge between technical teams and C-suite decision-makers.',
-    roles: ['AI Solutions Engineer', 'Agentic AI Engineer', 'RAG Engineer', 'AI Architect (Associate)'],
-    salary: '$150,000 - $220,000 / yr',
-    salaryNote: 'Highly lucrative unicorn equity packages.',
-    price: 499,
-    discountPrice: 259,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied to semantic search architecture, intelligent document chunking, and context window optimisation.',
-    unicorns: ['OpenAI', 'Anthropic', 'Figure AI'],
-    eliteStack: [
-      { name: 'Claude Code', highlight: true },
-      { name: 'Linear', highlight: true },
-      { name: 'NotebookLM', highlight: true },
-      { name: 'DeepEval', highlight: false },
-      { name: 'Figma', highlight: false },
-      { name: 'Notion AI', highlight: false },
+    stairLabel: 'Code 10x faster with the three biggest AI coding tools in the world.',
+    whoShouldTake: [
+      'Any developer wanting to 10x their productivity',
+      'Career changers breaking into software development with AI assistance',
+      'Engineers competing in the modern job market (85% now use AI coding tools)',
     ],
-    portfolio: ['Hybrid-search local RAG pipeline with custom embeddings', 'Domain-specific context retrieval engine for financial/legal data', 'Real-time vector database sync and orchestration service'],
-    highSignalPortfolio: ['Clinical-AI-PRD: AI product requirements document for healthcare diagnostics', 'LLM-AB-Harness: A/B testing framework for LLM response quality evaluation', 'Syn-Data-GTM: Synthetic data generation pipeline for go-to-market analysis'],
-    githubStars: '500+',
-    githubNote: 'High-value documentation, SOPs, and architecture diagrams.',
+    toolStack: [
+      { name: 'Claude Code', desc: '#1 most-used AI coding tool in 2026 (46% developer love rate). Terminal-native, 1M token context.', highlight: true },
+      { name: 'Cursor', desc: '#1 AI-native IDE. 1M+ users, 360K+ paying customers, $2B+ ARR.', highlight: true },
+      { name: 'GitHub Copilot', desc: 'Most widely adopted in enterprise. 85% of developers use AI coding tools, Copilot leads enterprise adoption.', highlight: true },
+    ],
+    alsoCovered: 'AI code generation/refactoring/debugging, code review and security with AI, prompt engineering for code.',
+    concepts: 'Agentic coding (AI planning multi-file changes), when to use which tool, AI-assisted testing and documentation.',
+    projects: [
+      { name: 'Full-Stack Web App (AI-Pair-Programmed)', desc: 'Complete web app built with Cursor + Claude Code, documenting AI-assisted workflow and productivity gains.' },
+      { name: 'Published Developer Tool', desc: 'CLI tool or VS Code extension, shipped to npm or VS Code marketplace with documentation.' },
+      { name: 'AI Code Review & Security Bot', desc: 'GitHub Action using AI to review PRs, flag OWASP Top 10 vulnerabilities, suggest fixes, generate tests.' },
+    ],
+    roles: [
+      { title: 'AI-Augmented Software Engineer', salary: '$140K - $250K' },
+      { title: 'Full-Stack Developer (AI-Native)', salary: '$130K - $220K' },
+      { title: 'Developer Experience Engineer', salary: '$145K - $230K' },
+      { title: 'Freelance AI Developer', salary: '$150 - $300/hr' },
+    ],
+    targetCompanies: ['Anthropic', 'Cursor', 'GitHub/Microsoft', 'Replit', 'AI-native startups', 'Freelance/contract'],
+    github: '10-15 repos | 50-500 stars | Published tools with real downloads | OSS contributions',
+    website: 'Published tool showcase with download stats, "How I Built X" blog series',
   },
   {
     num: 5,
-    title: 'MLOps & Production Engineer',
+    label: 'DEPLOY',
+    title: 'MLOps & Deployment',
     gradient: 'from-brand-teal to-cyan-400',
     color: '#14B8A6',
-    why: 'The ultimate integration shift: moving from local generation in Jupyter notebooks to scalable, resilient production environments. If you cannot measure it and scale it, you cannot deploy it.',
-    marketMandate: 'Scalability, zero-downtime deployments, and production-grade observability. The engineers who keep AI systems alive at scale.',
-    roles: ['MLOps Lead', 'Senior AI Engineer', 'Deployment Specialist'],
-    salary: '$180,000 - $250,000+ / yr',
-    salaryNote: 'Premium hourly rates ($150+/hr).',
-    price: 499,
-    discountPrice: 249,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied to scalable cloud architecture, LLM observability, latency tracking, and zero-downtime deployments.',
-    unicorns: ['Anduril', 'Skild AI', 'Zipline'],
-    eliteStack: [
-      { name: 'Codex & Cursor', highlight: true },
-      { name: 'Docker', highlight: true },
-      { name: 'Kubernetes', highlight: true },
-      { name: 'MLflow', highlight: false },
-      { name: 'AWS / Azure IaC', highlight: false },
-      { name: 'Terraform', highlight: false },
+    stairLabel: 'Take AI from laptop to production at enterprise scale.',
+    whoShouldTake: [
+      'Engineers bridging "model works" to "model in production"',
+      'DevOps engineers transitioning to MLOps',
+      'ML engineers who want to own the full lifecycle',
     ],
-    portfolio: ['Containerised LLM API wrapper featuring latency and cost monitoring', 'Automated CI/CD deployment pipeline for live agent updates', 'Distributed load-balancing architecture for high-volume inference'],
-    highSignalPortfolio: ['Shadow-Deploy-Pipe: Shadow deployment pipeline with canary analysis and rollback', 'Drift-Catch-K8s: Model drift detection system running on Kubernetes', 'Token-Ops-Board: Real-time token usage and cost optimization dashboard'],
-    githubStars: '1,000+',
-    githubNote: 'Scalable architecture, robust deployment pipelines, and enterprise-grade reliability.',
+    toolStack: [
+      { name: 'Docker', desc: 'Non-negotiable containerization. Package and deploy any model anywhere. Every DevOps/MLOps job requires it.', highlight: true },
+      { name: 'AWS SageMaker / GCP Vertex AI', desc: 'Leading cloud ML platforms. Where 80%+ of enterprise AI runs in production.', highlight: true },
+      { name: 'MLflow', desc: 'Open-source standard for ML lifecycle management. Used by Databricks, Meta, Microsoft.', highlight: true },
+    ],
+    alsoCovered: 'CI/CD for AI, monitoring (drift detection, alerting), cost optimization, security/compliance.',
+    concepts: 'Experiment tracking, model versioning, containerizing ML models, cloud deployment (endpoints, auto-scaling, A/B testing).',
+    projects: [
+      { name: 'End-to-End ML Pipeline', desc: 'Data ingestion → training → evaluation → deployment → monitoring. Dockerized, MLflow-tracked, cloud-deployed.' },
+      { name: 'Model A/B Testing Platform', desc: 'Deploy multiple model versions, route traffic, auto-promote best performer.' },
+      { name: 'AI Cost & Performance Dashboard', desc: 'Monitor token usage, latency, costs across LLM providers with alerts and spend forecasting.' },
+    ],
+    roles: [
+      { title: 'MLOps Engineer', salary: '$145K - $220K' },
+      { title: 'AI Infrastructure Engineer', salary: '$160K - $280K' },
+      { title: 'ML Platform Engineer', salary: '$170K - $300K' },
+      { title: 'Cloud AI Architect', salary: '$180K - $320K' },
+    ],
+    targetCompanies: ['AWS', 'Google Cloud', 'Microsoft Azure', 'Databricks', 'Snowflake', 'Meta', 'Netflix', 'Uber', 'JPMorgan'],
+    github: '12-18 repos | Infra-as-code, Docker configs, CI/CD pipelines, MLflow experiments',
+    website: 'Architecture diagrams, monitoring dashboard screenshots, deployment case study',
   },
   {
     num: 6,
-    title: 'Enterprise AI Architect & CAIO',
+    label: 'SHIP',
+    title: 'AI Product Builder',
     gradient: 'from-brand-yellow to-amber-400',
     color: '#EAB308',
-    why: 'The apex of the Integration Era. Governing the integration of multi-agent systems across entire global organisations. Serving as the Editor-in-Chief for the digital and human workforce.',
-    marketMandate: 'Zero-to-one innovation at venture scale. The architects who design AI-native companies and govern multi-agent ecosystems across global organizations.',
-    roles: ['Chief AI Officer (CAIO)', 'Principal AI Architect', 'AI Governance Lead'],
-    salary: '$300,000 - $700,000+',
-    salaryNote: 'Executive total comp packages.',
-    price: 499,
-    discountPrice: 249,
-    mindset: 'Problem Solving, Design Thinking, and an Entrepreneurial Mindset are applied to enterprise-wide risk mitigation, regulatory compliance, and aligning AI capabilities with multi-million dollar business objectives.',
-    unicorns: ['Decagon', 'xAI', 'Physical Intelligence', 'OpenAI'],
-    eliteStack: [
-      { name: 'Claude Code', highlight: true },
-      { name: 'Cursor', highlight: true },
-      { name: 'OpenClaw', highlight: true },
-      { name: 'Codex', highlight: false },
-      { name: 'DeepEval', highlight: false },
-      { name: 'NeMo Guardrails', highlight: false },
+    stairLabel: 'The capstone. Build, ship, and monetize complete AI products.',
+    whoShouldTake: [
+      'Aspiring AI Product Managers who want to ship, not just spec',
+      'Entrepreneurs and founders building AI startups',
+      'Developers becoming full-stack product builders',
+      'Anyone going from "I can build" to "I can build AND ship AND monetize"',
     ],
-    portfolio: ['Enterprise-grade evaluation and red-teaming framework', 'AI safety, bias mitigation, and compliance auditing dashboard', 'Multi-department agent orchestration governance system'],
-    highSignalPortfolio: ['Legal-Negotiator-Agent: Autonomous contract negotiation agent with compliance guardrails', 'Robo-Foundation-API: Full-stack AI foundation model API with rate limiting and billing', 'Edge-Orchestrator: Distributed edge AI orchestration system for IoT networks'],
-    githubStars: '2,500+',
-    githubNote: 'Establishing industry-standard open-source contributions.',
+    toolStack: [
+      { name: 'Lovable', desc: 'AI app builder valued at $6.6B (NVIDIA, Salesforce, Databricks-backed). Full-stack MVPs from text prompts.', highlight: true },
+      { name: 'Bolt.new', desc: 'Developer-friendly AI app builder with framework flexibility. 1M free tokens/month.', highlight: true },
+      { name: 'Replit', desc: '$9B AI-powered development and deployment platform. Code, build, deploy, host — all in one.', highlight: true },
+    ],
+    alsoCovered: 'AI Product Management, Design thinking, AI-specific PRDs, go-to-market strategy, Product Hunt launches, AI ethics.',
+    concepts: 'End-to-end product dev (idea → design → build → launch → iterate), system design, monetization (Stripe, pricing strategy).',
+    projects: [
+      { name: 'AI SaaS Product (Idea to Revenue)', desc: 'Complete AI SaaS with auth, Stripe payments, production DB. List on Product Hunt. Real users.' },
+      { name: 'AI Product PRD + Shipped MVP', desc: 'Professional PRD → built and shipped MVP → case study with metrics. The AI PM interview deliverable.' },
+      { name: 'AI-Powered Marketplace or Platform', desc: 'Two-sided platform with multiple user roles, real-time features, AI integration.' },
+    ],
+    roles: [
+      { title: 'AI Product Manager', salary: '$150K - $250K' },
+      { title: 'Technical PM (AI)', salary: '$160K - $270K' },
+      { title: 'Head of AI Product', salary: '$200K - $350K+' },
+      { title: 'AI Startup Founder', salary: 'Equity-based' },
+      { title: 'AI Consultant / Freelancer', salary: '$150 - $400/hr' },
+    ],
+    targetCompanies: ['OpenAI', 'Anthropic', 'Jasper', 'Google', 'Microsoft', 'Amazon', 'YC/a16z portfolio', 'Your own startup'],
+    github: '15-20+ repos | 100-1,000+ stars | Launched products with real users, published packages',
+    website: 'Stunning portfolio showcasing all 6 tiers. Live product demos. User/revenue metrics. This website IS the resume.',
   },
 ];
 
@@ -207,7 +250,6 @@ function GlowCard({ children, className = '' }: { children: React.ReactNode; cla
 function TierCard({ tier, index }: { tier: TierData; index: number }) {
   const [expanded, setExpanded] = useState(false);
   const { ref, visible } = useInView();
-  const discountPercent = Math.round((1 - tier.discountPrice / tier.price) * 100);
 
   return (
     <div ref={ref} className={`fade-up ${visible ? 'visible' : ''}`} style={{ transitionDelay: `${index * 80}ms` }}>
@@ -218,20 +260,15 @@ function TierCard({ tier, index }: { tier: TierData; index: number }) {
             className="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4"
           >
             <div className="flex items-center gap-5 min-w-0">
-              <div
-                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tier.gradient} flex items-center justify-center shadow-lg flex-shrink-0`}
-              >
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${tier.gradient} flex items-center justify-center shadow-lg flex-shrink-0`}>
                 <span className="text-2xl font-black text-white">{tier.num}</span>
               </div>
               <div className="min-w-0">
-                <h3 className="text-xl sm:text-2xl font-black text-gray-900 truncate">{tier.title}</h3>
-                <div className="flex items-center gap-3 mt-1.5">
-                  <span className="text-base text-gray-400 line-through">${tier.price}</span>
-                  <span className="text-xl font-black" style={{ color: tier.color }}>${tier.discountPrice}</span>
-                  <span className="px-2.5 py-0.5 rounded-full text-sm font-bold bg-green-100 text-green-700">
-                    {discountPercent}% OFF
-                  </span>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold uppercase tracking-wider" style={{ color: tier.color }}>{tier.label}</span>
                 </div>
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 truncate">{tier.title}</h3>
+                <p className="text-base text-gray-500 mt-0.5">{tier.stairLabel}</p>
               </div>
             </div>
             <div className={`w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}>
@@ -239,169 +276,130 @@ function TierCard({ tier, index }: { tier: TierData; index: number }) {
             </div>
           </button>
 
-          <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
-          >
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[4000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="px-6 sm:px-8 pb-8 border-t border-gray-50 pt-6">
-              <div className="mb-6 p-5 rounded-2xl border-2 border-brand-orange/20 bg-gradient-to-r from-brand-orange/5 via-amber-50/50 to-transparent">
+
+              {/* Who Should Take This */}
+              <div className="mb-6">
                 <div className="flex items-center gap-2.5 mb-3">
                   <Brain size={20} style={{ color: tier.color }} />
-                  <span className="text-base font-black uppercase tracking-wider" style={{ color: tier.color }}>Core Mindset</span>
+                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Who Should Take This Tier</span>
                 </div>
-                <p className="text-lg font-bold text-gray-900 leading-relaxed">{tier.mindset}</p>
+                <ul className="space-y-1.5">
+                  {tier.whoShouldTake.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-base text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: tier.color }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <div className="mb-6 p-5 rounded-2xl border border-gray-200 bg-gradient-to-r from-gray-50 to-white">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <Crosshair size={20} style={{ color: tier.color }} />
-                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Market Mandate</span>
-                </div>
-                <p className="text-base font-medium text-gray-700 leading-relaxed">{tier.marketMandate}</p>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <Brain size={20} style={{ color: tier.color }} />
-                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">The "Why"</span>
-                  </div>
-                  <p className="text-base text-gray-600 leading-relaxed">{tier.why}</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <Briefcase size={20} style={{ color: tier.color }} />
-                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Target Roles</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {tier.roles.map((role) => (
-                      <span
-                        key={role}
-                        className="inline-block px-3 py-1.5 rounded-full text-sm font-medium border border-gray-100 text-gray-700 bg-gray-50"
-                      >
-                        {role}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <DollarSign size={20} style={{ color: tier.color }} />
-                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Compensation</span>
-                  </div>
-                  <p className="text-xl font-black text-gray-900">{tier.salary}</p>
-                  <p className="text-sm text-gray-500 mt-1.5">{tier.salaryNote}</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <Tag size={20} style={{ color: tier.color }} />
-                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Course Price</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-lg text-gray-400 line-through">${tier.price}</span>
-                    <span className="text-3xl font-black" style={{ color: tier.color }}>${tier.discountPrice}</span>
-                  </div>
-                  <p className="text-sm text-green-600 font-semibold mt-1">
-                    Available at {discountPercent}% discount
-                  </p>
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2.5 mb-3">
-                    <Target size={20} style={{ color: tier.color }} />
-                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Target Unicorns</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {tier.unicorns.map((u) => (
-                      <span
-                        key={u}
-                        className="inline-block px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-700 bg-gray-50 border border-gray-100"
-                      >
-                        {u}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="mt-6">
+              {/* Tool Stack */}
+              <div className="mb-6">
                 <div className="flex items-center gap-2.5 mb-3">
                   <Code2 size={20} style={{ color: tier.color }} />
-                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Elite Stack</span>
+                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>Tool Stack (3 Core Tools)</span>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {tier.eliteStack.map((s) => (
-                    <span
-                      key={s.name}
-                      className={`inline-block px-3.5 py-2.5 rounded-lg text-sm font-bold border-2 ${
-                        s.highlight
-                          ? 'text-white border-transparent shadow-lg'
-                          : 'bg-white text-gray-700 border-gray-200'
-                      }`}
-                      style={s.highlight ? { backgroundColor: tier.color } : undefined}
-                    >
-                      {s.name}
-                    </span>
+                <div className="space-y-3">
+                  {tier.toolStack.map((tool) => (
+                    <div key={tool.name} className="flex items-start gap-3">
+                      <span
+                        className="inline-block px-3 py-1.5 rounded-lg text-sm font-bold text-white shadow-md flex-shrink-0 mt-0.5"
+                        style={{ backgroundColor: tier.color }}
+                      >
+                        {tool.name}
+                      </span>
+                      <span className="text-base text-gray-500">{tool.desc}</span>
+                    </div>
                   ))}
                 </div>
+                <p className="mt-3 text-sm text-gray-400">
+                  <span className="font-semibold">Also covered:</span> {tier.alsoCovered}
+                </p>
               </div>
 
-              <div className="mt-6">
+              {/* Concepts */}
+              <div className="mb-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">Key Concepts</span>
+                <p className="text-base text-gray-600 mt-1">{tier.concepts}</p>
+              </div>
+
+              {/* Projects */}
+              <div className="mb-6">
                 <div className="flex items-center gap-2.5 mb-3">
                   <FolderGit2 size={20} style={{ color: tier.color }} />
-                  <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Portfolio</span>
+                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>High-Signal Projects (3)</span>
                 </div>
                 <ol className="space-y-3">
-                  {tier.portfolio.map((p, i) => (
-                    <li key={i} className="flex items-start gap-3 text-base text-gray-600">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-sm font-bold text-gray-500 mt-0.5">
+                  {tier.projects.map((p, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span
+                        className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white mt-0.5"
+                        style={{ backgroundColor: tier.color }}
+                      >
                         {i + 1}
                       </span>
-                      {p}
+                      <div>
+                        <span className="font-bold text-gray-900">{p.name}</span>
+                        <span className="text-gray-500"> — {p.desc}</span>
+                      </div>
                     </li>
                   ))}
                 </ol>
               </div>
 
-              <div className="mt-6">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <FolderGit2 size={20} style={{ color: tier.color }} />
-                  <span className="text-sm font-black uppercase tracking-wider" style={{ color: tier.color }}>High-Signal Portfolio Projects</span>
+              <div className="grid gap-6 md:grid-cols-2">
+                {/* Career Mapping */}
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <Briefcase size={20} style={{ color: tier.color }} />
+                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Career Mapping</span>
+                  </div>
+                  <div className="space-y-2">
+                    {tier.roles.map((role) => (
+                      <div key={role.title} className="flex items-center justify-between p-2.5 rounded-lg bg-gray-50">
+                        <span className="text-base font-semibold text-gray-700">{role.title}</span>
+                        <span className="text-sm font-bold" style={{ color: tier.color }}>{role.salary}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <ol className="space-y-3">
-                  {tier.highSignalPortfolio.map((p, i) => {
-                    const [name, desc] = p.includes(': ') ? p.split(': ') : [p, ''];
-                    return (
-                      <li key={i} className="flex items-start gap-3 text-base">
-                        <span
-                          className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold text-white mt-0.5"
-                          style={{ backgroundColor: tier.color }}
-                        >
-                          {i + 1}
-                        </span>
-                        <div>
-                          <span className="font-bold text-gray-900">{name}</span>
-                          {desc && <span className="text-gray-500"> - {desc}</span>}
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
+
+                {/* Target Companies */}
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <Target size={20} style={{ color: tier.color }} />
+                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Target Companies</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {tier.targetCompanies.map((c) => (
+                      <span key={c} className="inline-block px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 bg-gray-50 border border-gray-100">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-6 flex items-center gap-4 p-5 rounded-xl bg-gray-50 border border-gray-100">
-                <Star size={24} style={{ color: tier.color }} />
-                <div>
-                  <span className="text-3xl font-black text-gray-900">{tier.githubStars}</span>
-                  <span className="text-base text-gray-500 ml-2">GitHub Stars Expected</span>
-                  {tier.githubNote && (
-                    <p className="text-sm text-gray-400 mt-0.5">{tier.githubNote}</p>
-                  )}
+              {/* GitHub & Website */}
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                  <Star size={20} style={{ color: tier.color }} className="flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">GitHub Portfolio</span>
+                    <p className="text-base text-gray-600 mt-1">{tier.github}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                  <Globe size={20} style={{ color: tier.color }} className="flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-sm font-bold uppercase tracking-wider text-gray-400">Personal Website Features</span>
+                    <p className="text-base text-gray-600 mt-1">{tier.website}</p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -420,14 +418,14 @@ export default function TierDetails() {
           <span className="inline-block px-5 py-2 rounded-full bg-brand-coral/10 text-brand-coral text-base font-semibold mb-5 uppercase tracking-wider">
             Deep Dive
           </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight">
             Explore Each{' '}
             <span className="bg-gradient-to-r from-brand-coral to-brand-orange bg-clip-text text-transparent">
               Tier
             </span>
           </h2>
-          <p className="mt-5 text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Tap any tier to see the full breakdown: roles, compensation, tech stack, portfolio expectations, and more.
+          <p className="mt-5 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Tap any tier to see the full breakdown: tools, projects, careers, salaries, companies, and portfolio expectations.
           </p>
         </div>
 

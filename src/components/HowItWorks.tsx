@@ -100,7 +100,7 @@ export default function HowItWorks() {
                       {step.subtitle}
                     </p>
                     <div className={`h-1 w-14 rounded-full bg-gradient-to-r ${step.color} mb-3`} />
-                    <p className="text-gray-500 leading-relaxed text-sm">{step.desc}</p>
+                    <p className="text-gray-600 leading-relaxed text-base">{step.desc}</p>
                   </div>
                 </div>
               </GlowCard>

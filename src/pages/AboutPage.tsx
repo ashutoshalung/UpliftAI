@@ -12,7 +12,7 @@ function AboutContent() {
     <>
       <section className="py-24 bg-gradient-to-b from-orange-50/60 to-white">
         <div ref={heroRef} className={`max-w-3xl mx-auto px-4 sm:px-6 text-center fade-up ${heroVisible ? 'visible' : ''}`}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 tracking-tight leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Closing the AI{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
               Capability Gap

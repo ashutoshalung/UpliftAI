@@ -2,15 +2,15 @@ import { useCallback, useRef } from 'react';
 import { ClipboardCheck, Package, UserPlus, Wrench, Briefcase } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
-const ASSESSMENT_URL = '#assessment';
+const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 
 const steps = [
   {
     num: '01',
     icon: ClipboardCheck,
     title: 'Find Your Tier',
-    time: '5 min',
-    desc: 'Take our free AI readiness assessment. In 5 minutes, we map your skills, identify gaps, and tell you exactly which tier to start at. You get a personalised AI readiness report.',
+    time: '30 min',
+    desc: 'Take our AI Job Readiness Assessment. In 30 minutes, we map your skills, identify gaps, and tell you exactly which tier to start at. You get a personalised readiness report.',
     color: 'from-brand-magenta to-pink-400',
     hex: '#D946EF',
   },
@@ -73,13 +73,13 @@ export default function YourJourney() {
   const { ref: gridRef, visible: gridVisible } = useInView();
 
   return (
-    <section id="how-it-works" className="py-24 bg-white overflow-hidden">
+    <section id="how-it-works" className="py-24 bg-gradient-to-b from-amber-50/80 to-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div ref={headerRef} className={`text-center mb-14 fade-up ${headerVisible ? 'visible' : ''}`}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-brand-coral/10 text-brand-coral text-sm font-semibold mb-4 uppercase tracking-wider">
             How It Works
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
             Five Steps. From Where You Are{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
               to Where You Want to Be.
@@ -105,7 +105,7 @@ export default function YourJourney() {
                       {step.time}
                     </span>
                   </div>
-                  <p className="text-gray-500 leading-relaxed">{step.desc}</p>
+                  <p className="text-base text-gray-600 leading-relaxed">{step.desc}</p>
                 </div>
 
                 <div className="flex-shrink-0 hidden sm:flex items-center justify-center w-12 h-12 rounded-xl" style={{ backgroundColor: `${step.hex}10` }}>
@@ -117,14 +117,14 @@ export default function YourJourney() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-lg text-gray-500 mb-4">
-            It starts with Step 1 — and <span className="font-bold text-gray-700">Step 1 is free.</span>
+          <p className="text-lg sm:text-xl text-gray-600 mb-4">
+            It starts with Step 1 — and <span className="font-bold text-gray-800">Step 1 is free.</span>
           </p>
           <a
             href={ASSESSMENT_URL}
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
           >
-            Find Your Tier →
+            Take the AI Readiness Assessment →
           </a>
         </div>
       </div>
