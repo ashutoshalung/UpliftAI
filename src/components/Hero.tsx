@@ -4,42 +4,31 @@ import { ArrowRight } from 'lucide-react';
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 
 const partnersRow1 = [
-  { name: 'Google DeepMind', slug: 'deepmind' },
-  { name: 'Google', slug: 'google' },
-  { name: 'Meta', slug: 'meta' },
-  { name: 'Anthropic', slug: 'anthropic' },
+  { name: 'Google DeepMind', logo: '/logos/deepmind.svg' },
+  { name: 'Google', logo: '/logos/google.svg' },
+  { name: 'Meta', logo: '/logos/meta.svg' },
+  { name: 'Anthropic', logo: `https://cdn.simpleicons.org/anthropic` },
+  { name: 'OpenAI', logo: '/logos/openai.svg' },
+  { name: 'xAI', logo: '/logos/xai.svg' },
+  { name: 'Manus AI', logo: '/logos/manus.svg' },
 ];
 
 const partnersRow2 = [
-  { name: 'NUS', initials: 'NUS', color: '#003D7C' },
-  { name: 'MIT', initials: 'MIT', color: '#A31F34' },
-  { name: 'INSEAD', initials: 'IN', color: '#006633' },
-  { name: 'Stanford', initials: 'SU', color: '#8C1515' },
-  { name: 'IIT', initials: 'IIT', color: '#1A1A6C' },
+  { name: 'NUS', logo: '/logos/nus.png' },
+  { name: 'MIT', logo: '/logos/mit.svg' },
+  { name: 'INSEAD', logo: '/logos/insead.svg' },
+  { name: 'IIT', logo: '/logos/iit.svg' },
 ];
 
-function CompanyLogo({ name, slug }: { name: string; slug: string }) {
-  return (
-    <div className="flex-shrink-0 mx-3 sm:mx-5">
-      <div className="flex items-center gap-3 px-5 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-300 min-w-[140px]">
-        <img
-          src={`https://cdn.simpleicons.org/${slug}`}
-          alt={name}
-          className="h-7 w-7 object-contain flex-shrink-0"
-        />
-        <span className="text-base font-semibold text-gray-700 whitespace-nowrap">{name}</span>
-      </div>
-    </div>
-  );
-}
-
-function UniversityLogo({ name, initials, color }: { name: string; initials: string; color: string }) {
+function PartnerLogo({ name, logo }: { name: string; logo: string }) {
   return (
     <div className="flex-shrink-0 mx-3 sm:mx-5">
       <div className="flex items-center gap-3 px-5 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 hover:-translate-y-0.5 transition-all duration-300 min-w-[130px]">
-        <div className="h-8 w-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: color }}>
-          <span className="text-xs font-black text-white leading-none">{initials}</span>
-        </div>
+        <img
+          src={logo}
+          alt={name}
+          className="h-10 w-auto object-contain flex-shrink-0 max-w-[44px]"
+        />
         <span className="text-base font-semibold text-gray-700 whitespace-nowrap">{name}</span>
       </div>
     </div>
@@ -153,12 +142,12 @@ export default function Hero() {
             <div className="flex mb-3 marquee-row-right-fast">
               <div className="flex shrink-0 items-center">
                 {[...partnersRow1, ...partnersRow1].map((p, i) => (
-                  <CompanyLogo key={`r1-${i}`} name={p.name} slug={p.slug} />
+                  <PartnerLogo key={`r1-${i}`} name={p.name} logo={p.logo} />
                 ))}
               </div>
               <div className="flex shrink-0 items-center" aria-hidden="true">
                 {[...partnersRow1, ...partnersRow1].map((p, i) => (
-                  <CompanyLogo key={`r1d-${i}`} name={p.name} slug={p.slug} />
+                  <PartnerLogo key={`r1d-${i}`} name={p.name} logo={p.logo} />
                 ))}
               </div>
             </div>
@@ -166,12 +155,12 @@ export default function Hero() {
             <div className="flex marquee-row-left-fast">
               <div className="flex shrink-0 items-center">
                 {[...partnersRow2, ...partnersRow2].map((p, i) => (
-                  <UniversityLogo key={`r2-${i}`} name={p.name} initials={p.initials} color={p.color} />
+                  <PartnerLogo key={`r2-${i}`} name={p.name} logo={p.logo} />
                 ))}
               </div>
               <div className="flex shrink-0 items-center" aria-hidden="true">
                 {[...partnersRow2, ...partnersRow2].map((p, i) => (
-                  <UniversityLogo key={`r2d-${i}`} name={p.name} initials={p.initials} color={p.color} />
+                  <PartnerLogo key={`r2d-${i}`} name={p.name} logo={p.logo} />
                 ))}
               </div>
             </div>

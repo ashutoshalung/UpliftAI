@@ -23,7 +23,7 @@ function safePublicCopy(): Plugin {
 
 export default defineConfig({
   plugins: [react(), safePublicCopy()],
-  publicDir: false,
+  publicDir: 'public',
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
