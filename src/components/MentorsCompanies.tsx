@@ -23,8 +23,26 @@ export default function MentorsCompanies() {
             </div>
             <h3 className="mt-5 text-xl font-black text-gray-900">Become a Mentor</h3>
             <p className="mt-2 text-gray-600 text-base leading-relaxed">
-              Lead mentor circles, run specialist clinics, supervise capstone projects, and shape the next generation of AI professionals. Our mentors come from DeepMind, Google, Meta, NUS, MIT, and more.
+              Lead mentor circles, run specialist clinics, supervise capstone projects, and shape the next generation of AI professionals. Our mentors come from:
             </p>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              {[
+                { src: '/logos/deepmind.svg', alt: 'DeepMind' },
+                { src: '/logos/google.svg', alt: 'Google' },
+                { src: '/logos/meta.svg', alt: 'Meta' },
+                { src: '/logos/nus.png', alt: 'NUS' },
+                { src: '/logos/mit.svg', alt: 'MIT' },
+                { src: '/logos/iit.svg', alt: 'IIT' },
+              ].map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              ))}
+              <span className="text-sm text-gray-400 font-medium">& more</span>
+            </div>
             <a
               href="https://community.upliftai.pro/join?invitation_token=08955cdf297ff35f3c107aeb41d56505c24d0949-cb66c74c-d503-41bc-92fd-8a055909c622"
               className="mt-5 inline-flex items-center gap-2 px-6 py-3 rounded-full text-brand-coral font-semibold border border-brand-coral/20 hover:bg-brand-coral/5 transition-all group"
