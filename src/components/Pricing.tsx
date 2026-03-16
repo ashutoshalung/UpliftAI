@@ -2,8 +2,6 @@ import { ArrowRight, Star } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-const PAYMENT_URL = '#payment';
-
 const packages = [
   {
     name: 'Package 1',
@@ -15,6 +13,7 @@ const packages = [
     careers: ['ML Engineer', 'LLM Engineer', 'AI Agent Developer'],
     salary: '$85K - $280K',
     popular: false,
+    paymentUrl: 'https://buy.stripe.com/aFadRaekw4C062E64k9sk00',
   },
   {
     name: 'Premium Package',
@@ -27,6 +26,7 @@ const packages = [
     salary: '$85K - $250K',
     popular: true,
     whyUpgrade: '85% of developers now use AI coding tools daily. Program 4 is the difference between "I know AI" and "I build with AI."',
+    paymentUrl: 'https://buy.stripe.com/3cIdRagsE3xW8aM78o9sk01',
   },
   {
     name: 'Package 2',
@@ -38,16 +38,17 @@ const packages = [
     careers: ['AI Developer', 'MLOps Engineer', 'AI Product Manager', 'Startup Founder'],
     salary: '$130K - $350K+',
     popular: false,
+    paymentUrl: 'https://buy.stripe.com/6oU5kE5O07Oceza50g9sk02',
   },
 ];
 
 const individualTiers = [
-  { num: 1, label: 'LEARN', title: 'AI & ML Foundations', price: 120, color: '#F97316', gradient: 'from-orange-500 to-amber-400' },
-  { num: 2, label: 'BUILD', title: 'LLM Applications & RAG', price: 120, color: '#F43F5E', gradient: 'from-rose-500 to-rose-400' },
-  { num: 3, label: 'AUTOMATE', title: 'AI Agents & Automation', price: 120, color: '#D946EF', gradient: 'from-fuchsia-500 to-pink-400' },
-  { num: 4, label: 'CODE', title: 'AI-Powered Development', price: 150, color: '#22C55E', gradient: 'from-green-500 to-emerald-400' },
-  { num: 5, label: 'DEPLOY', title: 'MLOps & Deployment', price: 150, color: '#14B8A6', gradient: 'from-teal-500 to-cyan-400' },
-  { num: 6, label: 'SHIP', title: 'AI Product Builder', price: 150, color: '#EAB308', gradient: 'from-yellow-500 to-amber-400' },
+  { num: 1, label: 'LEARN', title: 'AI & ML Foundations', price: 120, color: '#F97316', gradient: 'from-orange-500 to-amber-400', paymentUrl: 'https://buy.stripe.com/bJe14oekw1pOezaboE9sk05' },
+  { num: 2, label: 'BUILD', title: 'LLM Applications & RAG', price: 120, color: '#F43F5E', gradient: 'from-rose-500 to-rose-400', paymentUrl: 'https://buy.stripe.com/3cI5kE5O01pOaiUeAQ9sk04' },
+  { num: 3, label: 'AUTOMATE', title: 'AI Agents & Automation', price: 120, color: '#D946EF', gradient: 'from-fuchsia-500 to-pink-400', paymentUrl: 'https://buy.stripe.com/8x26oIccoc4s1Mo78o9sk06' },
+  { num: 4, label: 'CODE', title: 'AI-Powered Development', price: 150, color: '#22C55E', gradient: 'from-green-500 to-emerald-400', paymentUrl: 'https://buy.stripe.com/fZueVe2BO0lKaiU0K09sk07' },
+  { num: 5, label: 'DEPLOY', title: 'MLOps & Deployment', price: 150, color: '#14B8A6', gradient: 'from-teal-500 to-cyan-400', paymentUrl: 'https://buy.stripe.com/7sY00kfoAgkI8aM0K09sk08' },
+  { num: 6, label: 'SHIP', title: 'AI Product Builder', price: 150, color: '#EAB308', gradient: 'from-yellow-500 to-amber-400', paymentUrl: 'https://buy.stripe.com/14A6oIb8kgkIaiU0K09sk09' },
 ];
 
 const postEnrollSteps = [
@@ -146,7 +147,9 @@ export default function Pricing() {
               </div>
 
               <a
-                href={PAYMENT_URL}
+                href={pkg.paymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-7 w-full flex items-center justify-center gap-2 px-6 py-4 rounded-full text-base font-semibold transition-all ${
                   pkg.popular
                     ? 'text-white bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25'
@@ -187,7 +190,9 @@ export default function Pricing() {
                 <p className="text-sm text-gray-600 mb-3 leading-tight">{tier.title}</p>
                 <p className="text-3xl font-black text-gray-900">${tier.price}</p>
                 <a
-                  href={PAYMENT_URL}
+                  href={tier.paymentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 block text-center text-sm font-bold py-2.5 rounded-full border-2 border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
                 >
                   Pay & Enroll →

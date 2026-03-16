@@ -20,6 +20,7 @@ const tiers = [
     group: 'foundation',
     portfolio: '2-3 GitHub repos',
     website: 'Basic portfolio page',
+    paymentUrl: 'https://buy.stripe.com/bJe14oekw1pOezaboE9sk05',
   },
   {
     num: 2,
@@ -36,6 +37,7 @@ const tiers = [
     group: 'foundation',
     portfolio: '5-6 GitHub repos',
     website: 'Project showcase site',
+    paymentUrl: 'https://buy.stripe.com/3cI5kE5O01pOaiUeAQ9sk04',
   },
   {
     num: 3,
@@ -52,6 +54,7 @@ const tiers = [
     group: 'advanced',
     portfolio: '8-12 GitHub repos',
     website: 'Full portfolio with case studies',
+    paymentUrl: 'https://buy.stripe.com/8x26oIccoc4s1Mo78o9sk06',
   },
   {
     num: 4,
@@ -68,6 +71,7 @@ const tiers = [
     group: 'advanced',
     portfolio: '12-15 GitHub repos',
     website: 'Developer portfolio with live demos',
+    paymentUrl: 'https://buy.stripe.com/fZueVe2BO0lKaiU0K09sk07',
   },
   {
     num: 5,
@@ -84,6 +88,7 @@ const tiers = [
     group: 'expert',
     portfolio: '15-18 GitHub repos',
     website: 'Production app showcase',
+    paymentUrl: 'https://buy.stripe.com/7sY00kfoAgkI8aM0K09sk08',
   },
   {
     num: 6,
@@ -100,6 +105,7 @@ const tiers = [
     group: 'expert',
     portfolio: '20+ GitHub repos',
     website: 'Full-stack product portfolio',
+    paymentUrl: 'https://buy.stripe.com/14A6oIb8kgkIaiU0K09sk09',
   },
 ];
 
@@ -266,7 +272,9 @@ function StaircaseSection() {
                   <div className="text-4xl font-black text-gray-900">${activeTierData.price}</div>
                 </div>
                 <a
-                  href="#payment"
+                  href={activeTierData.paymentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full text-center px-4 py-2.5 rounded-full text-white text-base font-bold transition-all hover:shadow-lg hover:scale-[1.03]"
                   style={{ backgroundColor: activeTierData.color }}
                 >

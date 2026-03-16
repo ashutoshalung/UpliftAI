@@ -3,7 +3,7 @@ import TierDetails from '../components/TierDetails';
 import Footer from '../components/Footer';
 
 const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-const PAYMENT_URL = '#payment';
+const PAYMENT_URL = 'https://buy.stripe.com/3cIdRagsE3xW8aM78o9sk01';
 
 export default function AcceleratorPage() {
   return (
