@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/banners/(.*)", "destination": "/banners/$1" },
-    { "source": "/infographics/(.*)", "destination": "/infographics/$1" },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/((?!banners|infographics|logos|assets|.*\\.png$|.*\\.jpg$|.*\\.svg$|.*\\.ico$|.*\\.js$|.*\\.css$).*)",
+      "destination": "/"
+    }
   ]
 }
