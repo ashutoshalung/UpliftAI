@@ -1,8 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/((?!banners|infographics|logos|assets|.*\\.png$|.*\\.jpg$|.*\\.svg$|.*\\.ico$|.*\\.js$|.*\\.css$).*)",
-      "destination": "/"
-    }
+    { "source": "/accelerator", "destination": "/" },
+    { "source": "/about", "destination": "/" }
   ]
 }
