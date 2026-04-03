@@ -20,9 +20,9 @@ export default function ProgramsPage() {
             The Uplift AI Career Accelerator
           </span>
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            6 AI role programs.{' '}
+            The Uplift AI{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              One mission: get you hired.
+              Career Accelerator.
             </span>
           </h1>
           <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
