@@ -1,7 +1,6 @@
 import { ArrowRight, Star } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 const packages = [
   {
@@ -12,7 +11,7 @@ const packages = [
     tagline: 'From zero to building autonomous AI systems',
     bestFor: 'Beginners, career changers, students',
     careers: ['ML Engineer', 'LLM Engineer', 'AI Agent Developer'],
-    salary: '$85K - $280K',
+    salary: '$65K - $110K',
     popular: false,
     paymentUrl: 'https://buy.stripe.com/aFadRaekw4C062E64k9sk00',
   },
@@ -24,7 +23,7 @@ const packages = [
     tagline: 'The complete technical stack — foundations through AI-powered development',
     bestFor: 'Ambitious learners wanting the full stack',
     careers: ['All Package 1 roles', 'AI Software Engineer', 'Full-Stack AI Developer'],
-    salary: '$85K - $250K',
+    salary: '$65K - $130K',
     popular: true,
     whyUpgrade: '85% of developers now use AI coding tools daily. Program 4 is the difference between "I know AI" and "I build with AI."',
     paymentUrl: 'https://buy.stripe.com/3cIdRagsE3xW8aM78o9sk01',
@@ -37,7 +36,7 @@ const packages = [
     tagline: 'From coding to launching AI products',
     bestFor: 'Developers with existing ML/coding knowledge',
     careers: ['AI Developer', 'MLOps Engineer', 'AI Product Manager', 'Startup Founder'],
-    salary: '$130K - $350K+',
+    salary: '$80K - $150K+',
     popular: false,
     paymentUrl: 'https://buy.stripe.com/6oU5kE5O07Oceza50g9sk02',
   },
@@ -78,13 +77,7 @@ export default function Pricing() {
             </span>
           </h2>
           <p className="mt-4 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            Every package includes assessment, mentorship, proof-of-work, interview prep, and placement.
-          </p>
-          <p className="mt-3 text-base text-gray-400">
-            Not sure which package?{' '}
-            <a href={ASSESSMENT_URL} className="font-bold text-brand-orange hover:underline">
-              Take the AI readiness assessment first →
-            </a>
+            Every package includes mentorship, proof-of-work portfolio, interview training, and placement support.
           </p>
         </div>
 
@@ -218,10 +211,8 @@ export default function Pricing() {
           </ol>
           <div className="mt-6 pt-5 border-t border-gray-200 text-center">
             <p className="text-base text-gray-500">
-              Still not sure which package?{' '}
-              <a href={ASSESSMENT_URL} className="font-bold text-brand-orange hover:underline">
-                Take the AI readiness assessment first →
-              </a>
+              Questions? Email us at{' '}
+              <a href="mailto:hello@upliftai.pro" className="font-bold text-brand-orange hover:underline">hello@upliftai.pro</a>
             </p>
           </div>
         </div>

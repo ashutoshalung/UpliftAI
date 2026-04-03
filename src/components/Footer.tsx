@@ -1,43 +1,8 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-
-function ScrollLink({ to, hash, children }: { to?: string; hash?: string; children: React.ReactNode }) {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  if (to) {
-    return (
-      <Link to={to} className="text-gray-400 text-sm hover:text-white transition-colors">
-        {children}
-      </Link>
-    );
-  }
-
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!hash) return;
-
-    if (location.pathname === '/') {
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 150);
-    }
-  };
-
-  return (
-    <button onClick={handleClick} className="text-gray-400 text-sm hover:text-white transition-colors text-left">
-      {children}
-    </button>
-  );
-}
+const MASTERCLASS_URL = 'https://community.upliftai.pro/join?invitation_token=f428b930d629d809a0145adaa77f482ff6bc4bde-afeaad75-1e2b-473a-985d-9dd3ef56aaa7';
 
 const socials = [
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
@@ -47,7 +12,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1535] text-white">
+    <footer className="bg-[#1E1B4B] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid md:grid-cols-4 gap-12">
           <div>
@@ -63,7 +28,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <s.icon size={18} className="text-gray-300" />
                 </a>
@@ -72,19 +37,19 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">The Accelerator</h4>
+            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Job Programs</h4>
             <ul className="space-y-3">
-              <li><ScrollLink to="/accelerator">The 6 Programs</ScrollLink></li>
-              <li><ScrollLink hash="pricing">Packages & Pricing</ScrollLink></li>
-              <li><ScrollLink hash="where-to-start">Where To Start</ScrollLink></li>
+              <li><Link to="/programs" className="text-gray-400 text-sm hover:text-white transition-colors">The 6 Programs</Link></li>
+              <li><Link to="/pricing" className="text-gray-400 text-sm hover:text-white transition-colors">Packages & Pricing</Link></li>
+              <li><Link to="/how-it-works" className="text-gray-400 text-sm hover:text-white transition-colors">How It Works</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-3">
-              <li><ScrollLink to="/about">About Us</ScrollLink></li>
-              <li><ScrollLink hash="mentors">Our Mentors</ScrollLink></li>
+              <li><Link to="/about" className="text-gray-400 text-sm hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/internships" className="text-gray-400 text-sm hover:text-white transition-colors">Internships & Placements</Link></li>
               <li><a href="mailto:hello@upliftai.pro" className="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
@@ -92,8 +57,8 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Get Started</h4>
             <ul className="space-y-3">
-              <li><a href={ASSESSMENT_URL} className="text-gray-400 text-sm hover:text-white transition-colors">AI Readiness Assessment</a></li>
-              <li><ScrollLink hash="pricing">Enroll Now</ScrollLink></li>
+              <li><a href={MASTERCLASS_URL} className="text-gray-400 text-sm hover:text-white transition-colors">Free Masterclass</a></li>
+              <li><Link to="/pricing" className="text-gray-400 text-sm hover:text-white transition-colors">Enroll Now</Link></li>
               <li><a href="mailto:hello@upliftai.pro" className="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>

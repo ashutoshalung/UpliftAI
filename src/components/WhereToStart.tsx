@@ -1,12 +1,10 @@
 import { ArrowRight, Sparkles, Code2, Rocket, GraduationCap } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-
 const entryPoints = [
   {
     icon: GraduationCap,
-    iconBg: 'bg-gradient-to-br from-brand-magenta to-pink-400',
+    iconBg: 'bg-[#0B1120]',
     title: "I'm new to AI",
     desc: "You've heard the buzz but haven't built anything yet. Maybe you're a student, a career switcher, or a professional in a non-tech role.",
     startAt: 'Program 1 (LEARN)',
@@ -16,7 +14,7 @@ const entryPoints = [
   },
   {
     icon: Sparkles,
-    iconBg: 'bg-gradient-to-br from-brand-coral to-rose-400',
+    iconBg: 'bg-[#0B1120]',
     title: 'I can build models but want to build apps',
     desc: "You know Python, maybe some ML. But you haven't built production LLM applications or worked with agents.",
     startAt: 'Program 2 (BUILD)',
@@ -26,7 +24,7 @@ const entryPoints = [
   },
   {
     icon: Code2,
-    iconBg: 'bg-gradient-to-br from-brand-orange to-amber-400',
+    iconBg: 'bg-[#0B1120]',
     title: "I'm a developer — give me AI superpowers",
     desc: 'You can code. You want to work faster with AI coding tools and learn to deploy and ship AI products.',
     startAt: 'Program 4 (CODE)',
@@ -36,7 +34,7 @@ const entryPoints = [
   },
   {
     icon: Rocket,
-    iconBg: 'bg-gradient-to-br from-brand-green to-emerald-400',
+    iconBg: 'bg-[#0B1120]',
     title: 'I want to ship AI products and start a company',
     desc: 'You have technical foundations. You want to build, deploy, monetize, and launch.',
     startAt: 'Program 5 or 6 (DEPLOY / SHIP)',
@@ -111,18 +109,12 @@ export default function WhereToStart() {
           ))}
         </div>
 
-        <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={() => document.getElementById('talent-stack')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
+        <div className="mt-12 text-center">
+          <a
+            href="/programs"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-white font-semibold bg-brand-orange hover:bg-brand-orange/90 transition-all"
           >
             Explore The Programs →
-          </button>
-          <a
-            href={ASSESSMENT_URL}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all duration-300"
-          >
-            Not sure? Take the AI Job Readiness Assessment →
           </a>
         </div>
       </div>

@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    { "source": "/programs", "destination": "/" },
+    { "source": "/pricing", "destination": "/" },
+    { "source": "/internships", "destination": "/" },
+    { "source": "/how-it-works", "destination": "/" },
     { "source": "/accelerator", "destination": "/" },
     { "source": "/about", "destination": "/" }
   ]

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useInView } from '../hooks/useInView';
 
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 
 const tiers = [
@@ -15,13 +15,12 @@ const tiers = [
     solidBg: '#FFF7ED',
     solidBorder: '#FDBA74',
     gradient: 'from-orange-500 to-amber-400',
-    salary: '$85K-$145K',
-    price: 120,
+    jobTarget: 'Junior ML Engineer',
+    salary: '$65K–$95K',
     tools: ['PyTorch', 'TensorFlow/Keras', 'Scikit-learn'],
-    group: 'foundation',
-    portfolio: '2-3 GitHub repos',
-    website: 'Basic portfolio page',
-    paymentUrl: 'https://buy.stripe.com/bJe14oekw1pOezaboE9sk05',
+    portfolio: '3–5 GitHub repos',
+    website: 'Live site, about page, 3 projects, first blog',
+    youWillBuild: 'Image classifier, sentiment analysis model, ML benchmark report',
   },
   {
     num: 2,
@@ -32,13 +31,12 @@ const tiers = [
     solidBg: '#FFF1F2',
     solidBorder: '#FDA4AF',
     gradient: 'from-rose-500 to-rose-400',
-    salary: '$130K-$250K',
-    price: 120,
+    jobTarget: 'LLM / RAG Engineer',
+    salary: '$75K–$120K',
     tools: ['LangChain', 'Hugging Face', 'Pinecone/ChromaDB'],
-    group: 'foundation',
-    portfolio: '5-6 GitHub repos',
-    website: 'Project showcase site',
-    paymentUrl: 'https://buy.stripe.com/3cI5kE5O01pOaiUeAQ9sk04',
+    portfolio: '5–8 GitHub repos',
+    website: 'LLM demos, embedded chatbot, RAG blog',
+    youWillBuild: 'Enterprise chatbot, fine-tuned domain model, AI code review bot',
   },
   {
     num: 3,
@@ -49,13 +47,12 @@ const tiers = [
     solidBg: '#FDF4FF',
     solidBorder: '#E879F9',
     gradient: 'from-fuchsia-500 to-pink-400',
-    salary: '$110K-$280K',
-    price: 120,
+    jobTarget: 'AI Agent Developer',
+    salary: '$70K–$110K',
     tools: ['n8n', 'OpenClaw', 'CrewAI'],
-    group: 'advanced',
-    portfolio: '8-12 GitHub repos',
-    website: 'Full portfolio with case studies',
-    paymentUrl: 'https://buy.stripe.com/8x26oIccoc4s1Mo78o9sk06',
+    portfolio: '8–12 GitHub repos',
+    website: 'Live agent demo, automation case study, videos',
+    youWillBuild: 'AI executive assistant, multi-agent research system, automated job pipeline',
   },
   {
     num: 4,
@@ -66,13 +63,12 @@ const tiers = [
     solidBg: '#F0FDF4',
     solidBorder: '#86EFAC',
     gradient: 'from-green-500 to-emerald-400',
-    salary: '$130K-$250K',
-    price: 150,
+    jobTarget: 'AI Software Engineer',
+    salary: '$80K–$130K',
     tools: ['Claude Code', 'Cursor', 'GitHub Copilot'],
-    group: 'advanced',
-    portfolio: '12-15 GitHub repos',
-    website: 'Developer portfolio with live demos',
-    paymentUrl: 'https://buy.stripe.com/fZueVe2BO0lKaiU0K09sk07',
+    portfolio: '10–15 GitHub repos',
+    website: 'Published tools, download stats, "How I Built X" blog',
+    youWillBuild: 'Full-stack web app, published developer tool, code review automation',
   },
   {
     num: 5,
@@ -83,13 +79,12 @@ const tiers = [
     solidBg: '#F0FDFA',
     solidBorder: '#5EEAD4',
     gradient: 'from-teal-500 to-cyan-400',
-    salary: '$145K-$320K',
-    price: 150,
+    jobTarget: 'MLOps Engineer',
+    salary: '$85K–$140K',
     tools: ['Docker', 'SageMaker/Vertex', 'MLflow'],
-    group: 'expert',
-    portfolio: '15-18 GitHub repos',
-    website: 'Production app showcase',
-    paymentUrl: 'https://buy.stripe.com/7sY00kfoAgkI8aM0K09sk08',
+    portfolio: '12–18 GitHub repos',
+    website: 'Architecture diagrams, monitoring dashboards',
+    youWillBuild: 'End-to-end ML pipeline, A/B testing platform, cost monitoring dashboard',
   },
   {
     num: 6,
@@ -100,13 +95,12 @@ const tiers = [
     solidBg: '#FEFCE8',
     solidBorder: '#FDE047',
     gradient: 'from-yellow-500 to-amber-400',
-    salary: '$150K-$350K+',
-    price: 150,
+    jobTarget: 'AI Product Manager / Startup Founder',
+    salary: '$90K–$150K+',
     tools: ['Lovable', 'Bolt.new', 'Replit'],
-    group: 'expert',
-    portfolio: '20+ GitHub repos',
-    website: 'Full-stack product portfolio',
-    paymentUrl: 'https://buy.stripe.com/14A6oIb8kgkIaiU0K09sk09',
+    portfolio: '15–20+ GitHub repos',
+    website: 'Full portfolio, live demos, metrics. This IS the resume.',
+    youWillBuild: 'AI SaaS with Stripe billing, product requirements doc + MVP, marketplace',
   },
 ];
 
@@ -133,7 +127,6 @@ function StaircaseSection() {
           />
 
           <div className="relative" style={{ paddingBottom: `${STEP_H * 6 + SLAB_DEPTH - 20}%` }}>
-
             <div className="absolute left-0 right-0 bottom-0" style={{ top: '0%', transform: `translateY(${STAIRCASE_TRANSLATE_Y})` }}>
               {tiers.map((tier, i) => {
                 const isActive = activeTier === tier.num;
@@ -193,8 +186,8 @@ function StaircaseSection() {
                         <div className="text-xs sm:text-sm font-bold uppercase tracking-wider leading-none mb-0.5" style={{ color: tier.color }}>
                           {tier.label}
                         </div>
-                        <div className="text-xs sm:text-sm font-semibold text-gray-600 leading-tight truncate">
-                          {tier.title}
+                        <div className="text-xs sm:text-sm font-black text-gray-900 leading-tight truncate">
+                          → {tier.jobTarget}
                         </div>
                       </div>
                     </div>
@@ -204,6 +197,7 @@ function StaircaseSection() {
             </div>
           </div>
 
+          {/* Mobile numbered buttons */}
           <div className="mt-4 flex items-center justify-center gap-2 sm:hidden">
             {tiers.map((tier) => (
               <button
@@ -217,45 +211,51 @@ function StaircaseSection() {
           </div>
 
           {!activeTierData && (
-            <p className="text-center text-base text-gray-400 mt-4">Select a program to see tools, salary, and portfolio details.</p>
+            <p className="text-center text-base text-gray-400 mt-4">Select a program to see details.</p>
           )}
         </div>
 
+        {/* Expanded detail panel */}
         <div className={`transition-all duration-500 ${activeTierData ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none h-0 overflow-hidden'}`}>
           {activeTierData && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+              {/* Program info */}
               <div className="rounded-xl border-2 p-5 relative overflow-hidden" style={{ borderColor: `${activeTierData.color}50`, background: `linear-gradient(135deg, ${activeTierData.color}06, white)` }}>
                 <button onClick={() => setActiveTier(null)} className="absolute top-3 right-3 w-7 h-7 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors">
                   <X size={14} className="text-gray-500" />
                 </button>
-                <div className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: activeTierData.color }}>
-                  Program {activeTierData.num} — {activeTierData.label}
+                <div className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: activeTierData.color }}>
+                  Program {activeTierData.num}: {activeTierData.label}
                 </div>
-                <div className="text-xl font-black text-gray-900 mb-1">{activeTierData.title}</div>
-                <p className="text-base text-gray-600">{activeTierData.oneLiner}</p>
+                <div className="text-2xl font-black text-gray-900 mb-1">→ {activeTierData.jobTarget}</div>
+                <p className="text-sm text-gray-500 mb-1">{activeTierData.title}</p>
+                <p className="text-sm font-semibold" style={{ color: activeTierData.color }}>{activeTierData.salary}</p>
               </div>
 
+              {/* Tools */}
               <div className="rounded-xl border-2 p-5" style={{ borderColor: `${activeTierData.color}30`, background: `linear-gradient(135deg, ${activeTierData.color}05, white)` }}>
                 <div className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: activeTierData.color }}>
                   Key Tools
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {activeTierData.tools.map((t) => (
-                    <span key={t} className="inline-block px-3 py-1.5 rounded-lg text-base font-semibold text-white shadow-md" style={{ backgroundColor: activeTierData.color }}>
+                    <span key={t} className="inline-block px-3 py-1.5 rounded-lg text-sm font-semibold text-white shadow-md" style={{ backgroundColor: activeTierData.color }}>
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
+              {/* Portfolio */}
               <div className="rounded-xl border-2 p-5" style={{ borderColor: `${activeTierData.color}30`, background: `linear-gradient(135deg, ${activeTierData.color}05, white)` }}>
                 <div className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: activeTierData.color }}>
                   Portfolio Built
                 </div>
                 <div className="text-lg font-black text-gray-900 mb-1">{activeTierData.portfolio}</div>
-                <p className="text-base text-gray-600">{activeTierData.website}</p>
+                <p className="text-sm text-gray-600">{activeTierData.website}</p>
               </div>
 
+              {/* Salary */}
               <div className="rounded-xl border-2 p-5 flex items-center" style={{ borderColor: `${activeTierData.color}30`, background: `linear-gradient(135deg, ${activeTierData.color}05, white)` }}>
                 <div>
                   <div className="text-sm font-bold uppercase tracking-wider mb-1" style={{ color: activeTierData.color }}>
@@ -265,13 +265,8 @@ function StaircaseSection() {
                 </div>
               </div>
 
+              {/* CTA */}
               <div className="rounded-xl border-2 p-5 flex flex-col items-center justify-center gap-3" style={{ borderColor: `${activeTierData.color}50`, background: `linear-gradient(135deg, ${activeTierData.color}08, white)` }}>
-                <div className="text-center">
-                  <div className="text-sm font-bold uppercase tracking-wider mb-1" style={{ color: activeTierData.color }}>
-                    Program Price
-                  </div>
-                  <div className="text-4xl font-black text-gray-900">${activeTierData.price}</div>
-                </div>
                 <a
                   href={ENROLL_FORM_URL}
                   target="_blank"
@@ -279,8 +274,9 @@ function StaircaseSection() {
                   className="w-full text-center px-4 py-2.5 rounded-full text-white text-base font-bold transition-all hover:shadow-lg hover:scale-[1.03]"
                   style={{ backgroundColor: activeTierData.color }}
                 >
-                  Pay & Enroll →
+                  Enroll Now →
                 </a>
+                <p className="text-xs text-gray-400 text-center">Fill the enrollment form & receive your secure payment link</p>
               </div>
             </div>
           )}
@@ -294,23 +290,23 @@ export default function TalentStack() {
   const { ref: headerRef, visible: headerVisible } = useInView();
 
   return (
-    <section id="talent-stack" className="py-16 bg-gradient-to-b from-orange-50 to-white overflow-hidden">
+    <section id="talent-stack" className="py-20 bg-gradient-to-b from-rose-50/40 via-orange-50/30 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div ref={headerRef} className={`text-center mb-1 fade-up ${headerVisible ? 'visible' : ''}`}>
           <span className="inline-block px-5 py-2 rounded-full bg-brand-green/10 text-brand-green text-base font-semibold mb-4 uppercase tracking-wider">
-            The 6-Program Ascent
+            6 Programs → 6 Jobs
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            From AI Curious to{' '}
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Every program maps to{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              AI Employed
+              a real AI job.
             </span>
           </h2>
-          <p className="mt-3 mb-2 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Six programs. Each builds on the last. You start where you are and ascend to where the market actually pays.
+          <p className="mt-4 mb-2 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Pick your target role. We train you for it. You build the portfolio that proves you can do it. You get placed.
           </p>
-          <p className="text-base font-bold text-gray-400 tracking-widest mb-6">
-            LEARN → BUILD → AUTOMATE → CODE → DEPLOY → SHIP
+          <p className="text-sm font-bold text-gray-400 tracking-widest mb-6">
+            ML Engineer → LLM Engineer → Agent Developer → Software Engineer → MLOps Engineer → Product Manager
           </p>
         </div>
 
@@ -318,22 +314,23 @@ export default function TalentStack() {
 
         <div className="mt-10 text-center space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25 transition-all"
+            >
+              View Packages & Pricing
+              <ArrowRight size={16} />
+            </Link>
             <a
-              href={ASSESSMENT_URL}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
+              href={ENROLL_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
             >
-              Not sure? Take the AI Readiness Assessment →
+              Enroll Now & Pay
+              <ArrowRight size={16} />
             </a>
-            <button
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all duration-300"
-            >
-              Know your program? Pay & Enroll →
-            </button>
           </div>
-          <a href="/accelerator" className="inline-flex items-center gap-2 text-brand-orange font-bold text-base hover:underline">
-            View Full Program Details →
-          </a>
         </div>
       </div>
     </section>

@@ -1,58 +1,65 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import TalentStack from '../components/TalentStack';
+import ElitePackage from '../components/ElitePackage';
 import TierDetails from '../components/TierDetails';
 import Footer from '../components/Footer';
 
 const ENROLL_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdGGFBE1d_efs36OddsVDLpKwI_wIoJVdlB7f_KLUpUSIeQLw/viewform?usp=header';
 
-export default function AcceleratorPage() {
+export default function ProgramsPage() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased">
       <Navbar />
 
-      <section className="py-20 bg-gradient-to-b from-orange-50/60 to-white">
+      {/* Hero header */}
+      <section className="py-16 bg-gradient-to-b from-orange-50/60 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-base font-semibold mb-5 uppercase tracking-wider">
-            The 6-Program Career Accelerator
+          <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-semibold mb-5 uppercase tracking-wider">
+            6 Programs → 6 AI Jobs
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            The Uplift AI{' '}
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            Each program maps to{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              Career Accelerator
+              a specific AI role.
             </span>
           </h1>
-          <p className="mt-5 text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Each program builds on the last. By Program 6, you can build, deploy,
-            and ship AI products independently.
+          <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Pick your target job. We train you for it, build your portfolio, and place you directly.
           </p>
-          <p className="mt-3 text-base font-bold text-gray-400 tracking-widest">
-            LEARN → BUILD → AUTOMATE → CODE → DEPLOY → SHIP
+          <p className="mt-3 text-sm font-semibold text-gray-400 tracking-widest">
+            ML Engineer → LLM Engineer → Agent Developer → Software Engineer → MLOps → Product Manager
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="/programs"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all"
+          <div className="mt-8">
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25 transition-all"
             >
-              Explore Job Programs →
-            </a>
-            <a
-              href={ENROLL_FORM_URL}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
-            >
-              Pay & Enroll Now →
-            </a>
+              View Pricing & Enroll
+              <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* 6 program cards — overview grid */}
+      <TalentStack />
+
+      {/* What's included in every program */}
+      <ElitePackage />
+
+      {/* Detailed program breakdowns — expandable deep dives */}
       <TierDetails />
 
       {/* Role Mapping Table */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-10">
-            Which Programs Do You Need for Your{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">Target Role?</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-4">
+            Job → Program{' '}
+            <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">Mapping</span>
           </h2>
+          <p className="text-lg text-gray-600 text-center mb-10">Find your target role. See exactly which programs get you there.</p>
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -76,8 +83,8 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
-      {/* Portfolio Progression */}
-      <section className="py-16 bg-gray-50">
+      {/* Portfolio Progression Table */}
+      <section className="py-16 bg-gradient-to-b from-orange-50/40 to-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-gray-900 text-center mb-10">
             Your Portfolio{' '}
@@ -106,19 +113,24 @@ export default function AcceleratorPage() {
         </div>
       </section>
 
+      {/* Bottom CTA */}
       <section className="py-16 bg-white text-center">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="/programs"
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-white font-bold text-lg bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl transition-all"
+          <Link
+            to="/pricing"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full text-white font-bold text-base bg-gradient-to-r from-brand-orange to-brand-coral hover:shadow-lg hover:shadow-brand-coral/25 transition-all"
           >
-            Explore Job Programs →
-          </a>
+            View Packages & Enroll
+            <ArrowRight size={16} />
+          </Link>
           <a
             href={ENROLL_FORM_URL}
-            className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-lg text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full font-bold text-base text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all"
           >
-            Pay & Enroll Now →
+            Pay & Enroll Now
+            <ArrowRight size={16} />
           </a>
         </div>
       </section>

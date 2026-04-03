@@ -2,7 +2,6 @@ import { Play, ArrowRight } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const MASTERCLASS_URL = 'https://community.upliftai.pro/join?invitation_token=f428b930d629d809a0145adaa77f482ff6bc4bde-afeaad75-1e2b-473a-985d-9dd3ef56aaa7';
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
 
 export default function Masterclass() {
   const { ref, visible } = useInView();
@@ -45,10 +44,10 @@ export default function Masterclass() {
                 Join Community & Attend Free Masterclass
               </a>
               <a
-                href={ASSESSMENT_URL}
+                href="/programs"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-orange/30 hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
               >
-                Take the AI Readiness Assessment
+                Explore Job Programs
                 <ArrowRight size={18} className="text-gray-400" />
               </a>
             </div>

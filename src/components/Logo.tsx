@@ -28,9 +28,9 @@ export default function Logo({ variant = 'dark', size = 'default' }: LogoProps) 
   const config = sizeConfig[size];
 
   return (
-    <Link to="/" className="flex items-center group">
+    <Link to="/" className="flex items-center group flex-shrink-0">
       <span
-        className={`${config.textClass} font-extrabold tracking-tight transition-transform group-hover:scale-105 ${
+        className={`${config.textClass} font-extrabold tracking-tight transition-transform group-hover:scale-105 whitespace-nowrap ${
           variant === 'light' ? 'text-white' : 'text-gray-900'
         }`}
         style={{ fontFamily: "'Inter', system-ui, sans-serif" }}

@@ -6,9 +6,9 @@ const steps = [
   {
     num: '01',
     icon: ClipboardCheck,
-    title: 'Assess',
+    title: 'Discover',
     subtitle: 'Know your baseline',
-    desc: 'We start with an assessment to understand your current skills, role fit, and readiness level. You get a clear baseline + direction.',
+    desc: 'We review your current skills, role fit, and experience level. You get a clear baseline + direction for your AI career.',
     color: 'from-brand-magenta to-pink-400',
     hex: '#D946EF',
   },
@@ -72,7 +72,7 @@ export default function HowItWorks() {
             How <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">Uplift</span> Works
           </h2>
           <p className="mt-4 text-lg text-gray-500 max-w-xl mx-auto">
-            A structured 4-step pathway from interest to real capability + proof-of-work + readiness
+            A structured 4-step pathway from interest to real capability + proof-of-work + placement
           </p>
         </div>
 

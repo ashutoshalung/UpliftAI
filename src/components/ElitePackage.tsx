@@ -1,36 +1,26 @@
-import { ClipboardCheck, Users, FolderGit2, Mic, Map } from 'lucide-react';
+import { Users, FolderGit2, Mic, Map } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 const features = [
   {
-    icon: ClipboardCheck,
-    title: 'AI Readiness Assessment',
-    description: 'A comprehensive evaluation mapping your technical baseline, raw logic, and entrepreneurial mindset to the exact market void you are positioned to fill.',
-    gradient: 'from-brand-magenta to-pink-400',
-  },
-  {
     icon: Users,
     title: 'Elite 1:1 Mentorship',
-    description: 'Direct, continuous coaching from industry veterans and alumni of NUS, MIT, INSEAD, Stanford, and IIT. You learn the tribal knowledge of Silicon Valley, not just syntax.',
-    gradient: 'from-brand-coral to-rose-400',
+    description: 'Direct coaching from industry veterans and alumni of NUS, MIT, INSEAD, Stanford, and IIT.',
   },
   {
     icon: FolderGit2,
-    title: 'High-Signalling Proof-of-Work',
-    description: 'Your bespoke personal website (live from Day 1 via Lovable/Bolt.new) and a formidable GitHub portfolio — engineered to make recruiters come to you.',
-    gradient: 'from-brand-orange to-amber-400',
+    title: 'Proof-of-Work Portfolio',
+    description: 'A personal website (live from Day 1) and a GitHub portfolio engineered to make recruiters come to you.',
   },
   {
     icon: Mic,
-    title: 'Aggressive Interview Training',
-    description: 'Tech & HR mock interviews, whiteboarding sessions, and salary negotiation tactics calibrated for the $150K+ market.',
-    gradient: 'from-brand-green to-emerald-400',
+    title: 'Interview Training',
+    description: 'Tech & HR mock interviews, whiteboarding sessions, and salary negotiation coaching.',
   },
   {
     icon: Map,
-    title: 'Personalised Referral Mapping',
-    description: 'Direct ecosystem introductions: internships for Programs 1-3, senior/founder-level placements for Programs 4-6. We don\'t just train you — we place you.',
-    gradient: 'from-brand-yellow to-lime-400',
+    title: 'Referral Mapping & Placement',
+    description: 'Direct introductions: internships for Programs 1\u20133, senior and founder-level placements for Programs 4\u20136.',
   },
 ];
 
@@ -39,66 +29,36 @@ export default function ElitePackage() {
   const { ref: gridRef, visible: gridVisible } = useInView();
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div ref={headerRef} className={`text-center mb-6 fade-up ${headerVisible ? 'visible' : ''}`}>
-          <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-base font-semibold mb-5 uppercase tracking-wider">
+    <section className="py-20 bg-gradient-to-b from-white via-pink-50/40 to-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div ref={headerRef} className={`text-center mb-12 fade-up ${headerVisible ? 'visible' : ''}`}>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-coral/10 text-brand-coral text-xs font-semibold mb-4 uppercase tracking-wider">
             Included in Every Program
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            Your Gateway to the{' '}
-            <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              Top 1%
-            </span>
+            More than a course. A{' '}
+            <span className="text-brand-orange">job placement system.</span>
           </h2>
-          <p className="mt-5 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            This is not a course. It's a career acceleration system. Every program comes with the full engine — assessment, mentorship, portfolio building, interview prep, and{' '}
-            <span className="font-bold text-gray-900">direct placement</span>.
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Every program comes with mentorship, portfolio building, interview prep, and direct placement.
           </p>
         </div>
 
-        {/* Two-row layout: 3 on top, 2 on bottom centered */}
-        <div ref={gridRef} className="mt-14">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-5">
-            {features.slice(0, 3).map((feature, i) => {
+        <div ref={gridRef} className="mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {features.map((feature, i) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={feature.title}
-                  className={`fade-up ${gridVisible ? 'visible' : ''} group relative bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-xl hover:border-gray-200 hover:-translate-y-1 transition-all duration-300 hover-glow`}
+                  className={`fade-up ${gridVisible ? 'visible' : ''} bg-white rounded-xl border border-gray-200 p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-1 hover:border-gray-300`}
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon size={26} className="text-white" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-orange to-brand-coral flex items-center justify-center mb-4">
+                    <Icon size={18} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-black text-gray-900 mb-3 leading-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl sm:max-w-none sm:mx-auto sm:w-2/3">
-            {features.slice(3).map((feature, i) => {
-              const Icon = feature.icon;
-              return (
-                <div
-                  key={feature.title}
-                  className={`fade-up ${gridVisible ? 'visible' : ''} group relative bg-white rounded-2xl border border-gray-100 p-7 hover:shadow-xl hover:border-gray-200 hover:-translate-y-1 transition-all duration-300 hover-glow`}
-                  style={{ transitionDelay: `${(i + 3) * 80}ms` }}
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon size={26} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-black text-gray-900 mb-3 leading-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <h3 className="text-base font-bold text-gray-900 mb-2">{feature.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
                 </div>
               );
             })}

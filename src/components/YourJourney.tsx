@@ -2,15 +2,13 @@ import { useCallback, useRef } from 'react';
 import { ClipboardCheck, Package, UserPlus, Wrench, Briefcase } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
-const ASSESSMENT_URL = 'https://equip.co/assessments/nrzee/';
-
 const steps = [
   {
     num: '01',
     icon: ClipboardCheck,
     title: 'Find Your Program',
-    time: '30 min',
-    desc: 'Take our AI Job Readiness Assessment. In 30 minutes, we map your skills, identify gaps, and tell you exactly which program to start at. You get a personalised readiness report.',
+    time: 'Day 1',
+    desc: 'Browse our 6 job programs. Each one targets a specific AI role. Pick the one that matches where you are and where you want to go.',
     color: 'from-brand-magenta to-pink-400',
     hex: '#D946EF',
   },
@@ -19,7 +17,7 @@ const steps = [
     icon: Package,
     title: 'Choose Your Package',
     time: 'Same day',
-    desc: 'Pick from 3 packages starting at $300. Each maps to specific programs and career outcomes. We recommend the best fit based on your assessment.',
+    desc: 'Pick from 3 packages starting at $300. Each maps to specific programs and career outcomes. We recommend the best fit based on your goals.',
     color: 'from-brand-coral to-rose-400',
     hex: '#F43F5E',
   },
@@ -118,13 +116,13 @@ export default function YourJourney() {
 
         <div className="mt-12 text-center">
           <p className="text-lg sm:text-xl text-gray-600 mb-4">
-            It starts with Step 1 — and <span className="font-bold text-gray-800">Step 1 is free.</span>
+            It starts with Step 1 — <span className="font-bold text-gray-800">pick your program.</span>
           </p>
           <a
-            href={ASSESSMENT_URL}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white font-semibold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
+            href="/programs"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg text-white font-semibold bg-brand-orange hover:bg-brand-orange/90 transition-all"
           >
-            Take the AI Readiness Assessment →
+            Explore the Job Programs →
           </a>
         </div>
       </div>
