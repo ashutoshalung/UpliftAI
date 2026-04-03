@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-20 pb-16 text-center">
         <div className={`mb-5 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-white/70 border border-brand-orange/20 text-brand-orange text-xs font-semibold uppercase tracking-widest">
-            Singapore-based · Globally Connected
+            The Uplift AI Career Accelerator
           </span>
         </div>
 
