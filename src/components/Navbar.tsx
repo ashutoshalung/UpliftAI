@@ -23,7 +23,7 @@ export default function Navbar() {
             to="/programs"
             className={`text-sm font-medium whitespace-nowrap transition-colors ${isActive('/programs') ? 'text-brand-orange' : 'text-gray-700 hover:text-gray-900'}`}
           >
-            Job Programs
+            Career Accelerator
           </Link>
           <Link
             to="/how-it-works"
@@ -72,7 +72,7 @@ export default function Navbar() {
 
       {open && (
         <div className="lg:hidden border-t border-gray-100 bg-white px-4 pb-4">
-          <Link to="/programs" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Job Programs</Link>
+          <Link to="/programs" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Career Accelerator</Link>
           <Link to="/how-it-works" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">How It Works</Link>
           <Link to="/internships" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Internships</Link>
           <Link to="/pricing" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Pricing</Link>

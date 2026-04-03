@@ -85,9 +85,9 @@ export default function Hero() {
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-brand-coral flex items-center justify-center mb-4">
               <Briefcase size={22} className="text-white" />
             </div>
-            <h3 className="text-lg font-extrabold text-gray-900 mb-1.5">6 Job Programs</h3>
+            <h3 className="text-lg font-extrabold text-gray-900 mb-1.5">Career Accelerator</h3>
             <p className="text-sm text-gray-600 leading-relaxed mb-4">
-              ML Engineer. LLM Engineer. Agent Developer. Each program trains you for a specific AI role and places you.
+              6 AI role programs. ML Engineer. LLM Engineer. Agent Developer. Each one trains you for a specific job.
             </p>
             <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-orange group-hover:gap-2.5 transition-all">
               Explore Programs <ArrowRight size={14} />

@@ -25,7 +25,7 @@ export default function FinalCTA() {
             to="/programs"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-white text-gray-900 font-bold text-base hover:shadow-lg transition-all"
           >
-            Explore Job Programs
+            Explore the Career Accelerator
           </Link>
           <Link
             to="/internships"

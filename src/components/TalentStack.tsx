@@ -293,17 +293,17 @@ export default function TalentStack() {
     <section id="talent-stack" className="py-20 bg-gradient-to-b from-rose-50/40 via-orange-50/30 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div ref={headerRef} className={`text-center mb-1 fade-up ${headerVisible ? 'visible' : ''}`}>
-          <span className="inline-block px-5 py-2 rounded-full bg-brand-green/10 text-brand-green text-base font-semibold mb-4 uppercase tracking-wider">
-            6 Programs → 6 Jobs
+          <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-base font-semibold mb-4 uppercase tracking-wider">
+            The Uplift AI Career Accelerator
           </span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            Every program maps to{' '}
+            6 AI role programs.{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              a real AI job.
+              Each one is a job.
             </span>
           </h2>
           <p className="mt-4 mb-2 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Pick your target role. We train you for it. You build the portfolio that proves you can do it. You get placed.
+            Every program maps to a specific AI role. We train you for it, build your portfolio, and place you directly.
           </p>
           <p className="text-sm font-bold text-gray-400 tracking-widest mb-6">
             ML Engineer → LLM Engineer → Agent Developer → Software Engineer → MLOps Engineer → Product Manager

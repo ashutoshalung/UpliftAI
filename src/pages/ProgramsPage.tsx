@@ -17,12 +17,12 @@ export default function ProgramsPage() {
       <section className="py-16 bg-gradient-to-b from-orange-50/60 to-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <span className="inline-block px-5 py-2 rounded-full bg-brand-orange/10 text-brand-orange text-sm font-semibold mb-5 uppercase tracking-wider">
-            6 Programs → 6 AI Jobs
+            The Uplift AI Career Accelerator
           </span>
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
-            Each program maps to{' '}
+            6 AI role programs.{' '}
             <span className="bg-gradient-to-r from-brand-orange to-brand-coral bg-clip-text text-transparent">
-              a specific AI role.
+              One mission: get you hired.
             </span>
           </h1>
           <p className="mt-5 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">

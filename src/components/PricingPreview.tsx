@@ -167,7 +167,7 @@ export default function PricingPreview() {
             </div>
 
             <h3 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-              6 programs. 6 AI jobs. Your pick.
+              6 AI role programs. Each one is a job.
             </h3>
             <p className="mt-3 text-base sm:text-lg text-gray-400 max-w-xl mx-auto">
               ML Engineer → LLM Engineer → Agent Developer → Software Engineer → MLOps → Product Manager
@@ -178,7 +178,7 @@ export default function PricingPreview() {
                 to="/programs"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg text-white text-base font-semibold bg-brand-orange hover:bg-brand-orange/90 transition-all"
               >
-                Explore the Job Programs <ArrowRight size={18} />
+                Explore the AI Role Programs <ArrowRight size={18} />
               </Link>
               <Link
                 to="/how-it-works"

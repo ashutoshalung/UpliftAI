@@ -37,9 +37,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Job Programs</h4>
+            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Career Accelerator</h4>
             <ul className="space-y-3">
-              <li><Link to="/programs" className="text-gray-400 text-sm hover:text-white transition-colors">The 6 Programs</Link></li>
+              <li><Link to="/programs" className="text-gray-400 text-sm hover:text-white transition-colors">6 AI Role Programs</Link></li>
               <li><Link to="/pricing" className="text-gray-400 text-sm hover:text-white transition-colors">Packages & Pricing</Link></li>
               <li><Link to="/how-it-works" className="text-gray-400 text-sm hover:text-white transition-colors">How It Works</Link></li>
             </ul>
