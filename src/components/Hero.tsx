@@ -120,6 +120,14 @@ export default function Hero() {
           </div>
         </div>
 
+        <p
+          className={`mt-5 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-[500ms] ${
+            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          We give you <span className="font-bold text-[#1E1B4B]">real projects, real deployments, a real AI portfolio.</span>
+        </p>
+
         {/* THREE PATHWAY CARDS */}
         <div
           className={`mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto transition-all duration-700 delay-[700ms] ${
