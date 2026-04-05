@@ -125,7 +125,7 @@ export default function Hero() {
             loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          We give you <span className="font-bold text-[#1E1B4B]">real projects, real deployments, a real AI portfolio.</span>
+          We give you <span className="font-bold text-[#1E1B4B]">real projects, real deployments, and a personal AI portfolio</span> that speaks louder than any certificate.
         </p>
 
         {/* THREE PATHWAY CARDS */}
