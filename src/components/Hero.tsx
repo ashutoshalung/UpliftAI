@@ -120,39 +120,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Static supporting copy — portfolio / GitHub focused */}
-        <p
-          className={`mt-5 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-[500ms] ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          Everyone has a resume. Few have a <span className="font-bold text-[#1E1B4B]">GitHub portfolio</span> that proves what they can do.
-          <br className="hidden sm:block" />
-          We give you <span className="font-bold text-[#1E1B4B]">real projects, real deployments, and a personal AI portfolio</span> that speaks louder than any certificate.
-        </p>
-
-        {/* GitHub / Portfolio proof pills */}
-        <div
-          className={`mt-7 flex flex-wrap justify-center gap-3 transition-all duration-700 delay-[600ms] ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          {[
-            '3–20 GitHub repos per program',
-            'Live deployed projects',
-            'Personal AI portfolio website',
-            'Video walkthroughs & case studies',
-          ].map((item) => (
-            <span
-              key={item}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/80 border border-gray-200 text-sm font-medium text-gray-700 shadow-sm"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-              {item}
-            </span>
-          ))}
-        </div>
-
         {/* THREE PATHWAY CARDS */}
         <div
           className={`mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto transition-all duration-700 delay-[700ms] ${
