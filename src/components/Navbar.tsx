@@ -52,13 +52,13 @@ export default function Navbar() {
 
           <div className="w-px h-5 bg-gray-200 mx-1" />
 
-          <a
-            href={MASTERCLASS_URL}
+          <Link
+            to="/masterclass"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-white px-4 py-2 rounded-lg bg-brand-orange hover:bg-brand-orange/90 transition-all whitespace-nowrap"
           >
             <Play size={10} fill="currentColor" />
             Free Masterclass
-          </a>
+          </Link>
         </div>
 
         <button
@@ -77,7 +77,7 @@ export default function Navbar() {
           <Link to="/internships" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Internships</Link>
           <Link to="/pricing" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">Pricing</Link>
           <Link to="/about" onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-gray-600 hover:text-gray-900 border-b border-gray-50">About</Link>
-          <a href={MASTERCLASS_URL} onClick={() => setOpen(false)} className="mt-3 block text-center text-base font-semibold text-white px-6 py-3 rounded-lg bg-brand-orange">Free Masterclass</a>
+          <Link to="/masterclass" onClick={() => setOpen(false)} className="mt-3 block text-center text-base font-semibold text-white px-6 py-3 rounded-lg bg-brand-orange">Free Masterclass</Link>
         </div>
       )}
     </nav>

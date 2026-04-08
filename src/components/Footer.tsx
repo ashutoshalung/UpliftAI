@@ -57,7 +57,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-wider mb-4">Get Started</h4>
             <ul className="space-y-3">
-              <li><a href={MASTERCLASS_URL} className="text-gray-400 text-sm hover:text-white transition-colors">Free Masterclass</a></li>
+              <li><Link to="/masterclass" className="text-gray-400 text-sm hover:text-white transition-colors">Free Masterclass</Link></li>
               <li><Link to="/pricing" className="text-gray-400 text-sm hover:text-white transition-colors">Enroll Now</Link></li>
               <li><a href="mailto:hello@upliftai.pro" className="text-gray-400 text-sm hover:text-white transition-colors">Contact Us</a></li>
             </ul>

@@ -37,11 +37,11 @@ export default function Masterclass() {
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href={MASTERCLASS_URL}
+                href="/masterclass"
                 className="cta-glow inline-flex items-center gap-2 px-8 py-4 rounded-full text-white text-lg font-bold bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:shadow-brand-coral/25 transition-all duration-300 hover:scale-[1.03]"
               >
                 <Play size={18} fill="currentColor" />
-                Join Community & Attend Free Masterclass
+                Register for Free Masterclass
               </a>
               <a
                 href="/programs"

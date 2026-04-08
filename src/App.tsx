@@ -16,6 +16,7 @@ import InternshipsPage from './pages/InternshipsPage';
 import HowItWorksPage from './pages/HowItWorksPage';
 import AcceleratorPage from './pages/AcceleratorPage';
 import AboutPage from './pages/AboutPage';
+import MasterclassPage from './pages/MasterclassPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -54,6 +55,7 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/accelerator" element={<AcceleratorPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/masterclass" element={<MasterclassPage />} />
       </Routes>
     </BrowserRouter>
   );
