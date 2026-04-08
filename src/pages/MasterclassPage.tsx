@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, Clock, Calendar, Users, ArrowRight, CheckCircle2, Sparkles, Bot, Brain, MessageSquare, GraduationCap, Globe, Award, Briefcase } from 'lucide-react';
+import { Play, Clock, Calendar, Users, ArrowRight, CheckCircle2, Sparkles, Bot, Brain, MessageSquare, GraduationCap, Globe, Award, Briefcase, Lightbulb } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useInView } from '../hooks/useInView';
@@ -81,6 +81,31 @@ const masterclasses = [
     tools: ['n8n Cloud', 'OpenClaw', 'Google Gemini API', 'Google Stitch', 'Google Colab'],
     careerPath: 'AI Agent Developer — $70K–$110K',
     targetCompanies: 'n8n, Zapier, UiPath, Salesforce, McKinsey, Deloitte',
+  },
+  {
+    id: 'program-4',
+    program: 'Program 4',
+    title: 'Design Thinking & Business Model Innovation — with AI',
+    tagline: 'Solve real problems with human-centric design. Build viable business models using AI-powered tools.',
+    track: 'Design Thinking & Business Model Innovation',
+    icon: Lightbulb,
+    color: 'from-amber-500 to-yellow-500',
+    colorLight: 'amber',
+    borderColor: 'border-amber-200',
+    bgColor: 'bg-amber-50',
+    textColor: 'text-amber-600',
+    schedule: 'Every Saturday, 7:30 PM SGT',
+    usRepeat: 'Rotating weekday repeat',
+    duration: '60 minutes',
+    audience: 'Entrepreneurs, managers, innovation teams, MBA students',
+    whatYouBuild: [
+      'Human-centric problem framing using the Stanford Design Thinking model',
+      'AI-powered ideation & rapid prototyping with Gen AI tools',
+      'A Business Model Canvas for a real venture idea',
+    ],
+    tools: ['Miro / FigJam', 'ChatGPT / Claude', 'Business Model Canvas', 'Google AI Studio', 'Canva AI'],
+    careerPath: 'Innovation Lead / Product Strategist — $80K–$130K',
+    targetCompanies: 'McKinsey, BCG, IDEO, Accenture, Google, Startups',
   },
 ];
 
@@ -168,11 +193,31 @@ function RegistrationForm({ selectedId, onChangeSelection }: { selectedId: strin
 
   const selected = masterclasses.find((m) => m.id === selectedId);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !selectedId) return;
+    if (!email || !selectedId || !selected) return;
+    setSending(true);
+
+    try {
+      await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          masterclass: selectedId,
+          track: selected.track,
+          schedule: selected.schedule,
+        }),
+      });
+    } catch {
+      // Still redirect even if email fails
+    }
+
+    setSending(false);
     setSubmitted(true);
-    // Open Circle community in new tab after brief delay
     setTimeout(() => {
       window.open(CIRCLE_URL, '_blank');
     }, 1500);
@@ -278,15 +323,15 @@ function RegistrationForm({ selectedId, onChangeSelection }: { selectedId: strin
 
               <button
                 type="submit"
-                disabled={!selectedId || !email}
+                disabled={!selectedId || !email || sending}
                 className={`w-full cta-glow inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white text-lg font-bold transition-all duration-300 ${
-                  selectedId && email
+                  selectedId && email && !sending
                     ? 'bg-gradient-to-r from-brand-orange via-brand-coral to-brand-magenta hover:shadow-xl hover:scale-[1.03] cursor-pointer'
                     : 'bg-gray-300 cursor-not-allowed'
                 }`}
               >
                 <Play size={18} fill="currentColor" />
-                Register & Join Free Masterclass
+                {sending ? 'Registering...' : 'Register & Join Free Masterclass'}
               </button>
             </form>
 
@@ -489,7 +534,7 @@ function MasterclassContent() {
             <p className="mt-3 text-lg text-gray-500">Select one to register — attend as many as you like</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
             {masterclasses.map((mc) => (
               <MasterclassCard
                 key={mc.id}
